@@ -1,0 +1,9 @@
+function validaUPLOAD(){
+    
+    
+}
+
+function uploadCESION(){
+    
+    
+}
