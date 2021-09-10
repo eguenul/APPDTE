@@ -1,0 +1,7 @@
+<config>
+<server-address>localhost</server-address>
+<user-name>root</user-name>
+<user-pass>esther65</user-pass>
+<database-name>AppVentasInventario</database-name>
+<path-reports>/home/esteban/appdte/report/</path-reports>
+</config>
