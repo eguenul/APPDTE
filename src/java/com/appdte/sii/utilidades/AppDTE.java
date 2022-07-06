@@ -32,7 +32,7 @@ public class AppDTE {
     public  String sendDTE(int idmovimiento,String stringDTE,String certificado,String clave,String rutEnvia, boolean blReferencia) throws TransformerException, ParserConfigurationException, SAXException, IOException, Exception{
 try{
     
-   ConfigClass objconfiguracion = new ConfigClass();
+   ConfigAppDTE objconfiguracion = new ConfigAppDTE();
    String pathdata = objconfiguracion.getPathdata();
    String pathcaf = objconfiguracion.getPathcaf();
    String pathcertificado = objconfiguracion.getPathcert()+certificado;

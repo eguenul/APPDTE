@@ -14,7 +14,7 @@ public class Conexion {
       if (cnx == null) {
          try {
              
-          ConfigClass objconfig = new ConfigClass();
+          ConfigAppVenta objconfig = new ConfigAppVenta();
             Class.forName("com.mysql.jdbc.Driver");
             cnx = DriverManager.getConnection("jdbc:mysql://"+objconfig.getServeraddress()+"/"+objconfig.getDatabasename()+"?autoReconnect=true", objconfig.getUsername(),objconfig.getUserpass());
             

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package appventas.producto;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.report.Report;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -62,7 +62,7 @@ public class ProductoServlet  extends HttpServlet  {
               if("LISTADO".equals(acc)){
                      
                   
-                ConfigClass objconfig = new ConfigClass();
+                ConfigAppDTE objconfig = new ConfigAppDTE();
                 Report objReport = new Report("productos",objconfig.getPathdownload(),"PRODUCTOS"+String.valueOf(31) +"."+"pdf");
                 request.getSession().setAttribute("nombredocumento", "PRODUCTOS"+String.valueOf(31));
                 objReport.setParameters("parmEmpresaId", String.valueOf(empresaid));

@@ -1,7 +1,7 @@
 
 package appventas.report;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.movimientos.MovimientoModel2;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -57,7 +57,7 @@ public class LibroVentaServlet extends HttpServlet {
 
                             String fecha2 = fechahasta;
               
-                            ConfigClass objconfig = new ConfigClass();
+                            ConfigAppDTE objconfig = new ConfigAppDTE();
                             Report objReport = new Report("ventas",objconfig.getPathdownload(),"VENTAS"+String.valueOf(empresaid) +"."+extension);
                             
                           

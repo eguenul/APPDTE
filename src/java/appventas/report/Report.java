@@ -5,7 +5,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import appventas.include.Conexion;
-import appventas.include.ConfigClass;
+import appventas.include.ConfigAppVenta;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public Report(String reportName,String pathdownload,String archivosalida){
  
 public void  showReport() throws JRException, SQLException, ClassNotFoundException, ParserConfigurationException, SAXException, IOException {
     /* genera el documento en pdf */ 
-    ConfigClass objconfig = new ConfigClass();
+    ConfigAppVenta objconfig = new ConfigAppVenta();
         Conexion cbd = new Conexion();
         Connection auxConexion = cbd.obtener();
         JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(objconfig.getPathreports()+reportName+".jasper");
@@ -60,7 +60,7 @@ public void  showReport() throws JRException, SQLException, ClassNotFoundExcepti
     }
     
 public void showExcel() throws ParserConfigurationException, SAXException, IOException, SQLException, ClassNotFoundException, JRException{
-     ConfigClass objconfig = new ConfigClass();
+     ConfigAppVenta objconfig = new ConfigAppVenta();
      Conexion cbd = new Conexion();
      Connection auxConexion = cbd.obtener();
      JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(objconfig.getPathreports()+reportName+".jasper");

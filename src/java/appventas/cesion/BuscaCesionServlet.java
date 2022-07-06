@@ -5,7 +5,7 @@
  */
 package appventas.cesion;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.report.Report;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -58,7 +58,7 @@ request.getSession().setAttribute("botonera","no");
                 ArrayList<Object[]> arraycesion = objCesionModel.buscaCesion(numcesion);
                 request.getSession().setAttribute("arraycesion", arraycesion);
                   
-                ConfigClass objconfig = new ConfigClass();
+                ConfigAppDTE objconfig = new ConfigAppDTE();
                 
         String archivosalida = "cesion"+(String) request.getSession().getAttribute("login");
         Report objReport = new Report("cesion",objconfig.getPathdownload(),archivosalida+".pdf");

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 import appventas.movimientos.BlobDTE;
@@ -90,7 +90,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
                 
                  
                 case "SELECT":
-                      ConfigClass objConfig = new ConfigClass();
+                      ConfigAppDTE objConfig = new ConfigAppDTE();
                       
                       int iddoc = Integer.parseInt(request.getParameter("MovimientoId"));
                       BlobDTE objblobdte = new BlobDTE();

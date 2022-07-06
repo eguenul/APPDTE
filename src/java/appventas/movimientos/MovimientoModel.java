@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.Conexion;
 import appventas.producto.Producto;
 import java.io.FileOutputStream;
@@ -307,7 +307,7 @@ public ArrayList<Object[]> showDetails(int idmovimiento) throws SQLException{
 public void addXML(int idmovimiento,String empresarut, int numdoc, int docsiicod) throws SQLException, FileNotFoundException, ParserConfigurationException, SAXException, IOException{ 
     
     objconexion.setAutoCommit(false);
-    ConfigClass objconfigclass = new ConfigClass();
+    ConfigAppDTE objconfigclass = new ConfigAppDTE();
     String[] arrayrutemisor = empresarut.split("-");
     String auxrut = arrayrutemisor[0];
     String ruta= objconfigclass.getPathdte()+"DTE"+auxrut+"F"+String.valueOf(numdoc)+"T"+String.valueOf(docsiicod)+".xml";
@@ -327,7 +327,7 @@ public void addXML(int idmovimiento,String empresarut, int numdoc, int docsiicod
 public void getXML(int idmovimiento) throws IOException, SQLException, ParserConfigurationException, SAXException{
     Statement stm = objconexion.createStatement();
     ResultSet rs = stm.executeQuery("SELECT BlobXML,Archivo FROM Movimiento where MovimientoId="+String.valueOf(idmovimiento)); 
-  ConfigClass objconfigclass = new ConfigClass();
+  ConfigAppDTE objconfigclass = new ConfigAppDTE();
     
     while (rs.next()){
      Blob objblob = rs.getBlob("BlobXML");

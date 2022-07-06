@@ -35,7 +35,7 @@ public PrintDTE(String pathdownload){
     public  void printDTE(String rutemisor,String foliodte, String tipodte) throws Exception {
 
         
-       ConfigClass objconfig = new ConfigClass();
+       ConfigAppDTE objconfig = new ConfigAppDTE();
        String auxrutemisor = rutemisor;
        
        String[] arrayrutemisor = rutemisor.split("-");

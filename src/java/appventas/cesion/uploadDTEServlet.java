@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 
 
 import java.util.logging.Level;
@@ -32,7 +32,7 @@ public class uploadDTEServlet extends HttpServlet {
             
             String login=  (String) request.getSession().getAttribute("login");
             
-            ConfigClass objconfig = new ConfigClass();
+            ConfigAppDTE objconfig = new ConfigAppDTE();
              String  pathdata = objconfig.getPathdata();
              String name="";
             if(ServletFileUpload.isMultipartContent(request)){

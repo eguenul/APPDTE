@@ -5,7 +5,7 @@
  */
 package appventas.cesion;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.Conexion;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
  */
 public class BlobCESION {
         public void  registrarXML(int cesionid,String file) throws SQLException, ClassNotFoundException, ParserConfigurationException, SAXException, IOException {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         Conexion objaux = new Conexion();
         Connection conn = objaux.obtener();
         FileInputStream input = null;
@@ -62,7 +62,7 @@ public class BlobCESION {
 
     
         public  void getXMLCESION(int cesionid) throws ParserConfigurationException, SAXException, IOException, SQLException, ClassNotFoundException {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         Conexion objaux = new Conexion();
         Connection conn = objaux.obtener();
         

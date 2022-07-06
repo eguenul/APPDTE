@@ -2,7 +2,7 @@ package appventas.movimientos;
 
 import appventas.cliprov.CliProv;
 import appventas.cliprov.CliProvModel;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import com.appdte.sii.utilidades.PrintDTE;
 import appventas.documento.DocumentoModel;
 import appventas.empresa.Empresa;
@@ -263,7 +263,7 @@ public class addMovimientoServlet extends HttpServlet {
            String rutempresa = objEmpresa.getEmpresarut();
            
            
-            ConfigClass objConfig = new ConfigClass();
+            ConfigAppDTE objConfig = new ConfigAppDTE();
            /* */
            
          /* preparo la impresion del documento */

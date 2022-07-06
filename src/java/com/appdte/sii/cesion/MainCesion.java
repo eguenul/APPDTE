@@ -30,7 +30,7 @@ import com.appdte.json.CesionJson;
 import com.appdte.sii.cl.Semilla;
 import com.appdte.sii.cl.Token;
 import com.appdte.sii.cl.UploadCesion;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 
 import java.io.StringWriter;
 import org.xml.sax.SAXException;
@@ -63,7 +63,7 @@ public class MainCesion {
 }
     public String sendCesion(String stringjson, String pathupload,  String rutcedente, String email, String tipocesion) throws ParserConfigurationException, TransformerException, TransformerConfigurationException, IOException, FileNotFoundException, SAXException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, CertificateException, UnrecoverableEntryException, UnrecoverableKeyException, KeyException, MarshalException, XMLSignatureException, Exception{
      /* cargo parametros de configuracion */
-   ConfigClass objconfiguracion = new ConfigClass();
+   ConfigAppDTE objconfiguracion = new ConfigAppDTE();
    
    String certificado = this.loginuser;
    String pathcertificado = objconfiguracion.getPathcert()+certificado;

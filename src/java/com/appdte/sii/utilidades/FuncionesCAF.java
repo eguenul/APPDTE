@@ -22,7 +22,7 @@ public class FuncionesCAF {
     ;
    public boolean validaCAF( String rutempresa, int codsii, int nrofolio) throws ParserConfigurationException, SAXException, IOException{
      
-      ConfigClass objconfig = new ConfigClass();
+      ConfigAppDTE objconfig = new ConfigAppDTE();
        String pathcaf = objconfig.getPathcaf();
        String[] arrayrutempresa = rutempresa.split("-"); 
        String filepath =  pathcaf+"F"+arrayrutempresa[0].trim()+"T"+String.valueOf(codsii)+".xml";

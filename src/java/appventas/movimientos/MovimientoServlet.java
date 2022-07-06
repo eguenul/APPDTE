@@ -154,9 +154,7 @@ public class MovimientoServlet extends HttpServlet {
             } 
                 
                     
-                } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {
-                    Logger.getLogger(MovimientoServlet.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException | NumberFormatException ex) {
+                } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException | IOException | NumberFormatException ex) {
                     Logger.getLogger(MovimientoServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
             

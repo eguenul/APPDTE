@@ -5,7 +5,7 @@
  */
 package appventas.movimientos;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.Conexion;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +28,7 @@ import org.xml.sax.SAXException;
 public class BlobDTE {
     
     public void  registrarXML(int idmovimiento,String file) throws SQLException, ClassNotFoundException, ParserConfigurationException, SAXException, IOException {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         Conexion objaux = new Conexion();
         Connection conn = objaux.obtener();
         FileInputStream input = null;
@@ -63,7 +63,7 @@ public class BlobDTE {
 
     
         public  void getXMLDTE(int idmovimiento) throws ParserConfigurationException, SAXException, IOException, SQLException, ClassNotFoundException {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         Conexion objaux = new Conexion();
         Connection conn = objaux.obtener();
         

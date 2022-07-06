@@ -5,7 +5,7 @@
  */
 package appventas.login;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ public class LoginServlet  extends HttpServlet {
               request.getSession().setAttribute("login",login);
               request.getSession().setAttribute("loginauth", "yes");
               /* BUSCO SI EXISTE CERTIFICADO DIGITAL */
-              ConfigClass objConfig = new ConfigClass();
+              ConfigAppDTE objConfig = new ConfigAppDTE();
                          
               String sFichero = objConfig.getPathcert()+login;
               File fichero = new File(sFichero);

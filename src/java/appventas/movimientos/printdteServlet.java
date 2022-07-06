@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 public class printdteServlet extends HttpServlet {
 
 
@@ -27,7 +27,7 @@ public class printdteServlet extends HttpServlet {
 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     try {
         
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
       int empresaid = (int)request.getSession().getAttribute("empresaid");
         EmpresaModel objEmpresaModel = new EmpresaModel();
         Empresa objEmpresa = new Empresa();

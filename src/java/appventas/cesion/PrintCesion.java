@@ -1,6 +1,6 @@
 package appventas.cesion;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.report.Report;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
  
     
     try {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         String archivosalida = "cesion"+(String) request.getSession().getAttribute("login");
         Report objReport = new Report("cesion",objconfig.getPathdownload(),archivosalida+".pdf");
         int empresaid = (int) request.getSession().getAttribute("empresaid");

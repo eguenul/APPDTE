@@ -61,7 +61,7 @@ import org.xml.sax.SAXException;
 public class SignCesion {
     public  StringWriter signCesion(StringWriter objwriter,String login, String clave,String id, String elemento ) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException, UnrecoverableEntryException, KeyException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerConfigurationException, TransformerException{
          
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         String pathcertificado = objconfig.getPathcert()+login;
         
          /* CREO LOS ELEMENTOS DE FIRMA */     

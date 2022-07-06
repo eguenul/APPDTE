@@ -12,7 +12,7 @@ import com.appdte.json.CesionarioJson;
 import com.appdte.json.IdDteCesionjson;
 import com.appdte.json.RutAutorizadojson;
 import com.appdte.sii.cesion.MainCesion;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.documento.DocumentoModel;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
@@ -331,7 +331,7 @@ else{
          
          
          request.getSession().setAttribute("TRACKID",trackid);
-         ConfigClass objconfig = new ConfigClass();
+         ConfigAppDTE objconfig = new ConfigAppDTE();
          
          
          

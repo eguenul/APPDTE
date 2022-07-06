@@ -8,7 +8,7 @@ import com.appdte.json.CesionJson;
 import com.appdte.json.CesionarioJson;
 import com.appdte.json.IdDteCesionjson;
 import com.appdte.json.RutAutorizadojson;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 /*
@@ -71,7 +71,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
         
         
         
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         String loginuser = (String) request.getSession().getAttribute("login");
         
           File ficheroaecanterior = new File(objconfig.getPathdte()+"CESIONESANTERIORES"+loginuser+".xml");         

@@ -67,7 +67,7 @@ public class EnvioDTE {
         
         Element rutreceptor = this.doc.createElement("RutReceptor");
         
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
       if("maullin.sii.cl".equals(objconfig.getPathenvironment())){
         rutreceptor.setTextContent("60803000-K");
       }else{

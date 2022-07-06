@@ -5,7 +5,7 @@
  */
 package appventas.report;
 
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +29,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
  
     
     try {
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         String nombredocumento= (String) request.getSession().getAttribute("nombredocumento");
         
         File file = new File(objconfig.getPathdownload()+nombredocumento+".xls");

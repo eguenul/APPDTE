@@ -7,7 +7,7 @@ package com.appdte.sii.funcionesws;
 
 import com.appdte.sii.cl.Semilla;
 import com.appdte.sii.cl.Token;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -47,7 +47,7 @@ private String MontoDte;
 public String getEstDte(String login, String clave) throws ParserConfigurationException, SAXException, IOException, Exception{
         
        
- ConfigClass objconfig = new ConfigClass();
+ ConfigAppDTE objconfig = new ConfigAppDTE();
  String pathcertificado = objconfig.getPathcert()+login;
   
  Semilla objsemilla = new Semilla();

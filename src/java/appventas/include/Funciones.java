@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.File;
 import java.sql.ResultSet;
 
@@ -26,7 +26,7 @@ public class Funciones {
         String sql;
         sql="Select EmpresaRut from Empresa where EmpresaId="+String.valueOf(empresaid);
         
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         Conexion obj= new Conexion();
         objconexion = obj.obtener();
         Statement stm = objconexion.createStatement();

@@ -1,6 +1,6 @@
 
 package appventas.cliprov;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.comonFunc;
 import appventas.report.Report;
 import java.io.IOException;
@@ -178,7 +178,7 @@ public class CliProvServlet extends HttpServlet {
 
         if("LISTADO".equals(acc)){    
             
-            ConfigClass objconfig = new ConfigClass();
+            ConfigAppDTE objconfig = new ConfigAppDTE();
             Report objReport = new Report("cliprov",objconfig.getPathdownload(),"listcliprov"+String.valueOf(31)+".pdf");
             objReport.setParameters("parmEmpresaId", String.valueOf(empresaid));
             objReport.showReport();     

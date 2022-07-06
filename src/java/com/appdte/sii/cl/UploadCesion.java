@@ -19,7 +19,7 @@ import java.net.URL;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.appdte.sii.utilidades.ConfigClass;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.StringReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -57,7 +57,7 @@ public class UploadCesion {
         conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=7d23e2a11301c4"); 
         conn.setRequestProperty("User-Agent","Mozilla/4.0 (compatible; PROG 1.0; Windows NT 5.0; YComp 5.0.2.4)"); 
         conn.setRequestProperty("Cookie","TOKEN="+valortoken);
-        ConfigClass objconfig = new ConfigClass();
+        ConfigAppDTE objconfig = new ConfigAppDTE();
         String archivo = objconfig.getPathdte()+nombredte +".xml";
         conn.setUseCaches(false);
         String cadena = "";
@@ -124,7 +124,7 @@ String targetString = "";
           DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
           dbf.setNamespaceAware(false);
           DocumentBuilder db = dbf.newDocumentBuilder();
-           ConfigClass objconfig = new ConfigClass();
+           ConfigAppDTE objconfig = new ConfigAppDTE();
           Document doc = db.parse(new InputSource(new StringReader(targetString)));
                         
           NodeList nl = doc.getElementsByTagName("TRACKID");
