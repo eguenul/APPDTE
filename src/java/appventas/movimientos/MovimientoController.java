@@ -12,7 +12,6 @@ import com.appdte.json.IdDteJson;
 import com.appdte.json.ReceptorJson;
 import com.appdte.json.ReferenciaJson;
 import com.appdte.json.TotalesJson;
-import com.appdte.sii.utilidades.AppDTE;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 import appventas.usuarios.Usuario;
@@ -153,8 +152,12 @@ public class MovimientoController {
         final Gson gson = new Gson();
 	final String stringJSON = gson.toJson(objdtejson);   
         System.out.print(stringJSON);
+        /*
         AppDTE objfirma = new AppDTE();
         String trackid = objfirma.sendDTE(idmovimiento,stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
+        
         return trackid;
+            */
+        return "";
  }
 }

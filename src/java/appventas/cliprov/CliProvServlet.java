@@ -1,8 +1,6 @@
 
 package appventas.cliprov;
-import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.comonFunc;
-import appventas.report.Report;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
-import net.sf.jasperreports.engine.JRException;
 import org.xml.sax.SAXException;
 
 /**
@@ -177,7 +174,7 @@ public class CliProvServlet extends HttpServlet {
        }
 
         if("LISTADO".equals(acc)){    
-            
+            /*
             ConfigAppDTE objconfig = new ConfigAppDTE();
             Report objReport = new Report("cliprov",objconfig.getPathdownload(),"listcliprov"+String.valueOf(31)+".pdf");
             objReport.setParameters("parmEmpresaId", String.valueOf(empresaid));
@@ -193,7 +190,7 @@ public class CliProvServlet extends HttpServlet {
             out.print("</div>");
             out.print("</div>");
                
-        
+        */
         }    
         
         
@@ -274,7 +271,7 @@ public class CliProvServlet extends HttpServlet {
         
             
          
-         } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException | JRException ex) { 
+         } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) { 
               response.setContentType("text/html");
              //ya podemos enviar al navegador
              try ( //Objetemos el escritor hacia el Cliente

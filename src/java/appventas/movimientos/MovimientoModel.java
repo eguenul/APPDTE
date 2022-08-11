@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import com.appdte.sii.utilidades.ConfigAppDTE;
 import appventas.include.Conexion;
 import appventas.producto.Producto;
 import java.io.FileOutputStream;
@@ -305,7 +304,7 @@ public ArrayList<Object[]> showDetails(int idmovimiento) throws SQLException{
 
 
 public void addXML(int idmovimiento,String empresarut, int numdoc, int docsiicod) throws SQLException, FileNotFoundException, ParserConfigurationException, SAXException, IOException{ 
-    
+  /*  
     objconexion.setAutoCommit(false);
     ConfigAppDTE objconfigclass = new ConfigAppDTE();
     String[] arrayrutemisor = empresarut.split("-");
@@ -322,14 +321,17 @@ public void addXML(int idmovimiento,String empresarut, int numdoc, int docsiicod
     ps.setString(2, archivo);
     ps.executeUpdate();
     objconexion.commit();
+    */
 }
 
 public void getXML(int idmovimiento) throws IOException, SQLException, ParserConfigurationException, SAXException{
     Statement stm = objconexion.createStatement();
     ResultSet rs = stm.executeQuery("SELECT BlobXML,Archivo FROM Movimiento where MovimientoId="+String.valueOf(idmovimiento)); 
-  ConfigAppDTE objconfigclass = new ConfigAppDTE();
-    
-    while (rs.next()){
+/*
+    ConfigAppDTE objconfigclass = new ConfigAppDTE();
+  */  
+/*   
+while (rs.next()){
      Blob objblob = rs.getBlob("BlobXML");
       byte[] data = objblob.getBytes(1, (int)objblob.length());  
     try (FileOutputStream fos = new FileOutputStream(objconfigclass.getPathdte()+rs.getString("Archivo"))) {
@@ -338,6 +340,7 @@ public void getXML(int idmovimiento) throws IOException, SQLException, ParserCon
     }
           
   }  
+*/
      
 }
 

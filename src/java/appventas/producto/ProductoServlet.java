@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package appventas.producto;
-import com.appdte.sii.utilidades.ConfigAppDTE;
-import appventas.report.Report;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -61,7 +59,7 @@ public class ProductoServlet  extends HttpServlet  {
              
               if("LISTADO".equals(acc)){
                      
-                  
+                  /*
                 ConfigAppDTE objconfig = new ConfigAppDTE();
                 Report objReport = new Report("productos",objconfig.getPathdownload(),"PRODUCTOS"+String.valueOf(31) +"."+"pdf");
                 request.getSession().setAttribute("nombredocumento", "PRODUCTOS"+String.valueOf(31));
@@ -77,6 +75,7 @@ public class ProductoServlet  extends HttpServlet  {
             out.print("</a>");
             out.print("</div>");
             out.print("</div>");
+*/
               }
              
           
@@ -165,7 +164,7 @@ public class ProductoServlet  extends HttpServlet  {
 
              
              
-           } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException | JRException ex) {
+           } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {
                      Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
                  }
      

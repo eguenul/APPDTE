@@ -2,8 +2,6 @@ package appventas.movimientos;
 
 import appventas.cliprov.CliProv;
 import appventas.cliprov.CliProvModel;
-import com.appdte.sii.utilidades.ConfigAppDTE;
-import com.appdte.sii.utilidades.PrintDTE;
 import appventas.documento.DocumentoModel;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
@@ -12,7 +10,6 @@ import appventas.producto.Producto;
 import appventas.producto.ProductoModel;
 import appventas.usuarios.Usuario;
 import appventas.usuarios.UsuarioModel;
-import com.appdte.sii.utilidades.FuncionesCAF;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -157,13 +154,13 @@ public class addMovimientoServlet extends HttpServlet {
           
           
             Funciones objfunciones = new Funciones();
-          
+          /*
             if(objfunciones.buscaFolios(empresaid, codsii)==false){
                 validacionform = false;
                   response.sendRedirect("messageview/errorfolio.html");
             }
             
-        
+        */
             
              if(("34".equals(codsii)) & (totalneto > 0)){
                   validacionform = false;
@@ -190,13 +187,13 @@ public class addMovimientoServlet extends HttpServlet {
            Empresa objEmpresa = new Empresa();
            objEmpresa = objEmpresaModel.getData(empresaid);
           
-            FuncionesCAF objCAF = new FuncionesCAF();
+         /*   FuncionesCAF objCAF = new FuncionesCAF();
             
             if (objCAF.validaCAF(objEmpresa.getEmpresarut(),Integer.parseInt(codsii),numcorrelativo)==false){
                 validacionform = false;
                 response.sendRedirect("messageview/errorcaf.html");
              
-            }
+            }*/
             
            if(validacionform==true){ 
             
@@ -262,7 +259,7 @@ public class addMovimientoServlet extends HttpServlet {
            
            String rutempresa = objEmpresa.getEmpresarut();
            
-           
+          /* 
             ConfigAppDTE objConfig = new ConfigAppDTE();
            /* */
            
@@ -270,7 +267,7 @@ public class addMovimientoServlet extends HttpServlet {
             BlobDTE objblob = new BlobDTE();
             objblob.getXMLDTE(idmovimiento);
          
-         
+         /*
           PrintDTE objPrint = new PrintDTE(objConfig.getPathdownload());
           System.out.print(objConfig.getPathcaf());
            objPrint.printDTE(rutempresa.trim(), String.valueOf(numcorrelativo), codsii);
@@ -281,7 +278,7 @@ public class addMovimientoServlet extends HttpServlet {
            request.getSession().setAttribute("nombredocumento","ENVDTE"+rutempresa.trim()+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
            request.getSession().setAttribute("tipovista","emision");
            response.sendRedirect("movimientoview/successfull.jsp");
-           
+         */  
         }    
         }
          } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {

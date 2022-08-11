@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://170.239.87.203:8080/APPDTEWS/sendDTEWS?wsdl" uri="src/conf/xml-resources/web-service-references/sendDTEWS/wsdl/170.239.87.203_8080/APPDTEWS/sendDTEWS.wsdl"/>
+    <system systemId="http://170.239.87.203:8080/APPDTEWS/sendDTEWS?xsd=1" uri="src/conf/xml-resources/web-service-references/sendDTEWS/wsdl/170.239.87.203_8080/APPDTEWS/sendDTEWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/APPDTEWS/sendDTEWS?wsdl" uri="src/conf/xml-resources/web-service-references/sendDTEWS/wsdl/localhost_8080/APPDTEWS/sendDTEWS.wsdl"/>
+    <system systemId="http://localhost:8080/APPDTEWS/sendDTEWS?xsd=1" uri="src/conf/xml-resources/web-service-references/sendDTEWS/wsdl/localhost_8080/APPDTEWS/sendDTEWS.xsd_1.xsd"/>
+</catalog>
