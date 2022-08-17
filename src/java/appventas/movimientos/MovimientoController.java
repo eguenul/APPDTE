@@ -15,6 +15,7 @@ import com.appdte.json.TotalesJson;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 import appventas.usuarios.Usuario;
+import com.appdte.sii.utilidades.AppDTE;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -147,17 +148,18 @@ public class MovimientoController {
        objdtejson.setReferencia(objReferencia);
        
        
-//  objdtejson.setNumdte(String.valueOf(arraymovimiento[9]));
-// objdtejson.setTipodte(String.valueOf(arraymovimiento[8]));
+  objdtejson.setNumdte(String.valueOf(arraymovimiento[9]));
+ objdtejson.setTipodte(String.valueOf(arraymovimiento[8]));
         final Gson gson = new Gson();
 	final String stringJSON = gson.toJson(objdtejson);   
         System.out.print(stringJSON);
-        /*
-        AppDTE objfirma = new AppDTE();
-        String trackid = objfirma.sendDTE(idmovimiento,stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
+
+        AppDTE objfirma = new AppDTE("eguenul","maullin.sii.cl");
+   
+
+      String trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
         
         return trackid;
-            */
-        return "";
+            
  }
 }

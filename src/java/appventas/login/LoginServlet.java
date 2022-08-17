@@ -5,6 +5,8 @@
  */
 package appventas.login;
 
+import com.appdte.sii.utilidades.ConfigAppDTE;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -28,8 +30,8 @@ public class LoginServlet  extends HttpServlet {
               
               request.getSession().setAttribute("login",login);
               request.getSession().setAttribute("loginauth", "yes");
-              /* BUSCO SI EXISTE CERTIFICADO DIGITAL */
-             /*
+             /* BUSCO SI EXISTE CERTIFICADO DIGITAL */
+             
               ConfigAppDTE objConfig = new ConfigAppDTE();
                          
               String sFichero = objConfig.getPathcert()+login;
@@ -48,7 +50,7 @@ public class LoginServlet  extends HttpServlet {
               }else{
                    response.sendRedirect("index.jsp");
               }
-              */
+              
           }else{
               response.sendRedirect("messageview/errorlogin.html");
          } 

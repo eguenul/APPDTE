@@ -17,8 +17,9 @@ public class CesionJson {
    private IdDteCesionjson iddte;
    private String ultimovencimiento;
    private String montocesion;
+   /*
    private String rsreceptor;
-   
+   */
     public CedenteJson getCedente() {
         return cedente;
     }
@@ -74,7 +75,7 @@ public class CesionJson {
     public void setMontocesion(String montocesion) {
         this.montocesion = montocesion;
     }
-
+/*
     public String getRsreceptor() {
         return rsreceptor;
     }
@@ -83,5 +84,5 @@ public class CesionJson {
         this.rsreceptor = rsreceptor;
     }
     
-    
+  */  
 }

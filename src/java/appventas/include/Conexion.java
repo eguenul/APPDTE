@@ -15,8 +15,8 @@ public class Conexion {
          try {
              
           ConfigAppVenta objconfig = new ConfigAppVenta();
-            Class.forName("com.mysql.jdbc.Driver");
-            cnx = DriverManager.getConnection("jdbc:mysql://"+objconfig.getServeraddress()+"/"+objconfig.getDatabasename()+"?autoReconnect=true", objconfig.getUsername(),objconfig.getUserpass());
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cnx = DriverManager.getConnection("jdbc:mysql://"+objconfig.getServeraddress()+":3306/"+objconfig.getDatabasename()+"?allowPublicKeyRetrieval=true&useSSL=false", objconfig.getUsername(),objconfig.getUserpass());
             
             Statement stmt2 = cnx.createStatement();
              stmt2.execute("SET CHARACTER SET utf8");

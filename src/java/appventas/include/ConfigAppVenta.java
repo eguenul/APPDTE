@@ -8,13 +8,9 @@ package appventas.include;
 
 
 import java.io.IOException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.InputStream;
+import java.util.Properties;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
@@ -29,39 +25,20 @@ public class ConfigAppVenta {
     private final String pathreports;
     
     public ConfigAppVenta() throws ParserConfigurationException, SAXException, IOException{
-         String filepath;
-        filepath = "appventa.xml";
-	
-         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-	 DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-	 Document doc = docBuilder.parse(filepath);
-         
-   
-         NodeList nodeserveraddress =  doc.getElementsByTagName("server-address");
-         Element elserveraddress =  (Element) nodeserveraddress.item(0);  
-         this.serveraddress = elserveraddress.getFirstChild().getNodeValue();
-           
-         NodeList nodeusername =  doc.getElementsByTagName("user-name");
-         Element elusername =  (Element) nodeusername.item(0);  
-         this.username = elusername.getFirstChild().getNodeValue();
-    
-         NodeList nodeuserpass =  doc.getElementsByTagName("user-pass");
-         Element eluserpass =  (Element) nodeuserpass.item(0);  
-         this.userpass = eluserpass.getFirstChild().getNodeValue();
-    
-         NodeList nodedatabasename =  doc.getElementsByTagName("database-name");
-         Element eldatabasename =  (Element) nodedatabasename.item(0);  
-         this.databasename = eldatabasename.getFirstChild().getNodeValue();
-         
-         NodeList nodepathreports =  doc.getElementsByTagName("path-reports");
-         Element elpathreports =  (Element) nodepathreports.item(0);  
-         this.pathreports = elpathreports.getFirstChild().getNodeValue();
-         
-         
-         
-    
+        Properties prop = new Properties();
+        try (InputStream in = getClass().getResourceAsStream("/appventas/properties/appventas.properties")) {
+            prop.load(in);
+       
+          this.serveraddress = prop.getProperty("server-address");
+          this.username = prop.getProperty("user-name");
+          this.userpass = prop.getProperty("user-pass");
+          this.databasename = prop.getProperty("database-name");
+          this.pathreports = prop.getProperty("path-reports");
+        }
     }
-
+    
+    
+    
     public String getUserpass() {
         return userpass;
     }

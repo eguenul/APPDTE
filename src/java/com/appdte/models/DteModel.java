@@ -9,7 +9,7 @@ public class DteModel {
    String diremisor;
    String cmnaemisor;
    String ciuemisor;
-   
+   private String indservicio;
    
    
    String rutreceptor;
@@ -24,15 +24,15 @@ public class DteModel {
    
    String codigosii; 
    
-   
+  int montoneto;
    int montoafecto;
    int montoexento;
    int montoiva;
    int montototal;
    int tasaiva;
-   
+   private String frmapago;
    String fechadte;
-   
+  
    String fecharesol;
    
    String numresol;
@@ -274,6 +274,32 @@ public class DteModel {
    public String getNumresol(){
        return numresol;
    }
+
+    public String getFrmapago() {
+        return frmapago;
+    }
+
+    public void setFrmapago(String frmapago) {
+        this.frmapago = frmapago;
+    }
+
+    public String getIndservicio() {
+        return indservicio;
+    }
+
+    public void setIndservicio(String indservicio) {
+        this.indservicio = indservicio;
+    }
+
+    public int getMontoneto() {
+        return montoneto;
+    }
+
+    public void setMontoneto(int montoneto) {
+        this.montoneto = montoneto;
+    }
+
+    
    
     
 }
