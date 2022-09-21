@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/MovimientoServlet.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/producto/ProductoServlet.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/cliprovview/divlistacliprov.jsp</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/productoview/divlistaproducto2.jsp</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/MovimientoController.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/include/ConfigAppVenta.java</file>
             <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/properties/appventas.properties</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/producto/Producto.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/productoview/divlistaproducto.jsp</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/MovimientoServlet2.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/producto/ProductoModel.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/include/Conexion.java</file>
             <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/properties/appdte.properties</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appdte/sii/utilidades/AppDTE.java</file>
         </group>
     </open-files>
 </project-private>
