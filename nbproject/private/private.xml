@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/include/ConfigAppVenta.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/properties/appventas.properties</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/include/Conexion.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/properties/appdte.properties</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/Movimiento.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appboleta/json/DetalleJson.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appboleta/json/CaratulaJson.java</file>
         </group>
     </open-files>
 </project-private>
