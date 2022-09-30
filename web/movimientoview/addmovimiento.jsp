@@ -1,3 +1,4 @@
+<%@page import="appventas.fpago.FPago"%>
 <%@page import="appventas.movimientos.Despacho"%>
 <%@page import="appventas.movimientos.DetalleMovimiento"%>
 <%@page import="appventas.movimientos.Movimiento"%>
@@ -182,6 +183,28 @@ Movimiento objMovimiento = (Movimiento) request.getSession().getAttribute("objMo
        <td>FECHA DOCUMENTO</td>
       <td><input   size="10" type="date" value="<% out.print(currentDate); %>"  id="FechaDoc" name="FechaDoc"></td>
     </tr>
+    
+    <tr>
+        <td>
+            FORMA PAGO
+        </td>
+        
+        <td>
+            <select class="style-select">
+<%        List<FPago> listfpago = (ArrayList<FPago>)request.getSession(true).getAttribute("arrayfpago");
+ %>               
+                
+            <%   for(FPago fpago : listfpago){ %>
+             <option value="<% out.print(fpago.getIdfpago()); %>"><% out.print(fpago.getFpagodes()); %></option>
+            <% } %>
+            </select>
+        </td>
+        <td>&nbsp;</td>
+        
+        <td>&nbsp;</td>
+        
+        
+    </tr><!-- comment -->
     </table>
    
  <table  class="table table-bordered" id="TablaDetalle">

@@ -10,6 +10,8 @@ import appventas.cliprov.CliProv;
 import appventas.cliprov.CliProvModel;
 import appventas.documento.Documento;
 import appventas.documento.DocumentoModel;
+import appventas.fpago.FPago;
+import appventas.fpago.FPagoModel;
 import appventas.producto.Producto;
 import appventas.producto.ProductoModel;
 import java.io.IOException;
@@ -77,6 +79,10 @@ public class MovimientoServlet extends HttpServlet {
       ProductoModel objProductoModel = new ProductoModel(empresaid);
       ArrayList<Producto>  arrayproducto = objProductoModel.listProducto(0);
       
+      FPagoModel objFPagoModel =  new FPagoModel();
+      
+      ArrayList<FPago> arrayfpago = objFPagoModel.listFpago();
+              
       
        
       CliProv objcliprov = new CliProv();
@@ -99,6 +105,12 @@ public class MovimientoServlet extends HttpServlet {
     request.getSession().setAttribute("arraydespacho",arraydespacho);
     request.getSession().setAttribute("arraytraslado",arraytraslado);
          
+    
+      request.getSession().setAttribute("arrayfpago",arrayfpago);
+    
+    
+    
+    
        request.getSession().setAttribute("modulo", "movimiento");
      getServletConfig().getServletContext().getRequestDispatcher("/movimientoview/addmovimiento.jsp").forward(request,response);
   
