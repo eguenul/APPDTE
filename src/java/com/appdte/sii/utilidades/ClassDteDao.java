@@ -71,13 +71,13 @@ public void crearXml(DteModel encabezadodte) throws TransformerConfigurationExce
                      iddoc.appendChild(tipotraslado);
                 }
                 
-                
+               /* 
                  if( Integer.parseInt(tipodte.getTextContent())==33 || Integer.parseInt(tipodte.getTextContent())==34    ){
                      Element frmapago = this.doc.createElement("FmaPago");
                      frmapago.setTextContent(encabezadodte.getFrmapago());
                      iddoc.appendChild(frmapago);
                 }
-                
+                */
                 
                 // agrego los datos del emisor de la fctura
                                                
@@ -304,10 +304,10 @@ public void agregaDetalle(DetalleDteModel detalledte){
 	        Transformer transformer = transformerFactory.newTransformer();     
               
                 transformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
-                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
               
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes"); 
-                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "1"); 
+                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "0"); 
                             //luego guardo el documento    
                 DOMSource source = new DOMSource(this.doc);              
                 StreamResult result = new StreamResult(new File(pathdte+  nombredte+".xml"));

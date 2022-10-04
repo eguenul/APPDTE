@@ -347,7 +347,9 @@ while (rs.next()){
 
 public void updateTRACKID(int idmovimiento, String trackid) throws SQLException{
 
-    String sql = "Update Movimiento set MovimientoIdentificadorEnvio="+String.valueOf(Integer.parseInt(trackid))+" where MovimientoId="+String.valueOf(idmovimiento);
+    String sql = "Update Movimiento set MovimientoIdentificadorEnvio="+trackid+" where MovimientoId="+String.valueOf(idmovimiento);
+   
+   System.out.print(sql);
     Statement stm = objconexion.createStatement();
     stm.execute(sql);    
 

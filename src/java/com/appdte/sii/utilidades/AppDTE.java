@@ -169,12 +169,12 @@ public class AppDTE {
   
     
    Timbre objTimbre = new Timbre(objconfig.getPathdte(),nombredte,pathdata,pathcaf);
-   String auxDescripcion;
+  
+   
 for (DetalleDteJson i :  detalle){     
   if(i.getNrolinea()==1){  
        objTimbre.setItem1(i.getNmbitem());
-       auxDescripcion = i.getNmbitem();
- }
+   }
    
     
     objdetalledte.setNrolinea(i.getNrolinea());
@@ -201,21 +201,22 @@ for (DetalleDteJson i :  detalle){
    objReferenciaModel.setFolioref(referencia.getFolioref());
    objReferenciaModel.setCodref(referencia.getCodref());
     
-   /*     objReferenciaModel.setTpoDocRef(referencia.getTpoDocRef()); */
-       
-objReferenciaModel.setTpoDocRef(referencia.getTpoDocRef());
+   objReferenciaModel.setTpoDocRef(referencia.getTpoDocRef()); 
+   
+   objReferenciaModel.setTpoDocRef(referencia.getTpoDocRef());
     
 obj.agregaRegerencia(objReferenciaModel,blReferencia);
-    
-auxDescripcion = objTimbre.getItem1();
+  
 obj.guardarDocumento(nombredte,objconfig.getPathdte());
-objTimbre.creaTimbre(objdte, auxDescripcion,rutemisor);
+
+objTimbre.creaTimbre(objdte, rutemisor);
   
     
 /* preparo el DTE para firmar */
+
 SignDTE objFirma = new SignDTE();
 objFirma.signDTE(objconfig.getPathdte(),nombredte,certificado,clave);
-   
+
     /* ahora envuelvo el DTE en un sobre electrónico */
    
 EnvioDTE objenvio = new EnvioDTE(this.environment);

@@ -178,7 +178,7 @@ public class EnvioDTE {
          Transformer transformer = transformerFactory.newTransformer();
        
          transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");   
-         transformer.setOutputProperty(OutputKeys.ENCODING, "iso-8859-1");
+         transformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
          transformer.setOutputProperty(OutputKeys.INDENT, "no");
         
          DOMSource source = new DOMSource(this.doc);

@@ -36,21 +36,21 @@ import java.security.SignatureException;
 
 
 public class Timbre{
-    String rutemisor;
-    String razonsocial;
-    String tipodocumento;
-    String desde;
-    String hasta;
-    String fecha;
-    String textoe;
-    String textom;
-    String textoidk;
-    String textofrma;
-    String nombredte;
-    String pathdte;
-    String pathdata;
-    String pathcaf;
-    String item1;
+ private String rutemisor;
+ private String razonsocial;
+ private String tipodocumento;
+ private String desde;
+ private String hasta;
+ private String fecha;
+ private String textoe;
+ private String textom;
+ private String textoidk;
+ private String textofrma;
+ private String nombredte;
+ private String pathdte;
+ private String pathdata;
+ private String pathcaf;
+ private String item1;
     
     public Timbre(String pathdte,String nombredte, String pathdata,String pathcaf){
         this.nombredte = nombredte;
@@ -61,7 +61,7 @@ public class Timbre{
     
     
     
-    public void creaTimbre(DteModel objdte, String auxDescripcion, String parmrut) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException, TransformerException, FileNotFoundException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException{
+    public void creaTimbre(DteModel objdte,  String parmrut) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException, TransformerException, FileNotFoundException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException{
     
    
          String filepath = this.pathdte+this.nombredte+".xml";
@@ -79,37 +79,37 @@ public class Timbre{
          
          
            Element re = doc.createElement("RE");
-           re.setTextContent(objdte.getRutemisor().trim());
+           re.setTextContent(doc.getElementsByTagName("RUTEmisor").item(0).getTextContent());
            dd.appendChild(re);
          
          
          Element td = doc.createElement("TD");
-         td.setTextContent(objdte.getTipodte());
+         td.setTextContent(doc.getElementsByTagName("TipoDTE").item(0).getTextContent());
          dd.appendChild(td);
          
          Element f = doc.createElement("F");
-         f.setTextContent(objdte.getNumdte());
+         f.setTextContent(doc.getElementsByTagName("Folio").item(0).getTextContent());
          dd.appendChild(f);
          
          Element fe = doc.createElement("FE");
-         fe.setTextContent(objdte.getFechadte());
+         fe.setTextContent(doc.getElementsByTagName("FchEmis").item(0).getTextContent());
          dd.appendChild(fe);
          
          Element rr = doc.createElement("RR");
-         rr.setTextContent(objdte.getRutreceptor());
+         rr.setTextContent(doc.getElementsByTagName("RUTRecep").item(0).getTextContent());
          dd.appendChild(rr);
                   
          
          Element rsr = doc.createElement("RSR");
-         rsr.setTextContent(objdte.getRsreceptor());
+         rsr.setTextContent(doc.getElementsByTagName("RznSocRecep").item(0).getTextContent());
          dd.appendChild(rsr);
          
          Element mnt = doc.createElement("MNT");
-         mnt.setTextContent(Integer.toString(objdte.getMontototal()));
+         mnt.setTextContent(doc.getElementsByTagName("MntTotal").item(0).getTextContent());
          dd.appendChild(mnt);
          
          Element it1 = doc.createElement("IT1");
-         it1.setTextContent(auxDescripcion);
+         it1.setTextContent(doc.getElementsByTagName("NmbItem").item(0).getTextContent());
          dd.appendChild(it1);
          
       
@@ -202,7 +202,7 @@ public class Timbre{
           Transformer xform = TransformerFactory.newInstance().newTransformer();
           
           xform.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-           xform.setOutputProperty(OutputKeys.INDENT, "no");
+          xform.setOutputProperty(OutputKeys.INDENT, "no");
           xform.transform(new DOMSource(dd), new StreamResult(buf));
          
           
@@ -252,14 +252,12 @@ public class Timbre{
 	 DOMSource source = new DOMSource(doc);
 	 StreamResult result = new StreamResult(new File(pathdte+nombredte+".xml"));
 	
-          transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-          transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-       
-          transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-          transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "1");
-       
+          transformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
+          transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+          transformer.setOutputProperty(OutputKeys.INDENT, "no");
+             
         
-transformer.transform(source, result);
+          transformer.transform(source, result);
 	  System.out.println("Done");
          
     }

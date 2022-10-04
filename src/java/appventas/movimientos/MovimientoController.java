@@ -148,16 +148,16 @@ public class MovimientoController {
        objdtejson.setReferencia(objReferencia);
        
        
-  objdtejson.setNumdte(String.valueOf(arraymovimiento[9]));
- objdtejson.setTipodte(String.valueOf(arraymovimiento[8]));
-        final Gson gson = new Gson();
+       objdtejson.setNumdte(String.valueOf(arraymovimiento[9]));
+       objdtejson.setTipodte(String.valueOf(arraymovimiento[8]));
+       final Gson gson = new Gson();
 	final String stringJSON = gson.toJson(objdtejson);   
         System.out.print(stringJSON);
 
         AppDTE objfirma = new AppDTE("eguenul","maullin.sii.cl");
    
-
-      String trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
+/* */
+        String trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
         
         return trackid;
             

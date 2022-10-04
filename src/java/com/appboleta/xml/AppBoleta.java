@@ -200,7 +200,7 @@ for (DetalleDteJson i :  detalle){
   
 auxDescripcion = objTimbre.getItem1();
 obj.guardarDocumento(nombredte,objconfig.getPathdte());
-objTimbre.creaTimbre(objdte, auxDescripcion,rutemisor);
+objTimbre.creaTimbre(objdte, rutemisor);
   
     
 /* preparo el DTE para firmar */

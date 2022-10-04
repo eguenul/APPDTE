@@ -10,6 +10,8 @@ import appventas.producto.Producto;
 import appventas.producto.ProductoModel;
 import appventas.usuarios.Usuario;
 import appventas.usuarios.UsuarioModel;
+import com.appdte.sii.utilidades.ConfigAppDTE;
+import com.appdte.sii.utilidades.PrintDTE;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -259,16 +261,16 @@ public class addMovimientoServlet extends HttpServlet {
            
            String rutempresa = objEmpresa.getEmpresarut();
            
-          /* 
+           
             ConfigAppDTE objConfig = new ConfigAppDTE();
-           /* */
+           
            
          /* preparo la impresion del documento */
             BlobDTE objblob = new BlobDTE();
             objblob.getXMLDTE(idmovimiento);
          
-         /*
-          PrintDTE objPrint = new PrintDTE(objConfig.getPathdownload());
+         
+          PrintDTE objPrint = new PrintDTE();
           System.out.print(objConfig.getPathcaf());
            objPrint.printDTE(rutempresa.trim(), String.valueOf(numcorrelativo), codsii);
            String[] arrayrutemisor = rutempresa.split("-");
@@ -278,7 +280,7 @@ public class addMovimientoServlet extends HttpServlet {
            request.getSession().setAttribute("nombredocumento","ENVDTE"+rutempresa.trim()+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
            request.getSession().setAttribute("tipovista","emision");
            response.sendRedirect("movimientoview/successfull.jsp");
-         */  
+           
         }    
         }
          } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {

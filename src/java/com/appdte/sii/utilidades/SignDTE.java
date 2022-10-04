@@ -57,7 +57,8 @@ import org.xml.sax.SAXException;
 public class SignDTE {
     
     public void signDTE(String pathdte,String nombredte,String pathcertificado, String clave) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException, UnrecoverableEntryException, KeyException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerConfigurationException, TransformerException{
-               
+    System.setProperty("com.sun.org.apache.xml.internal.security.ignoreLineBreaks","true");
+     
         
         ConfigAppDTE objConfigAppDTE = new ConfigAppDTE();
         
@@ -143,8 +144,15 @@ OutputStream os2 = new FileOutputStream(pathdte+nombredte+".xml");
 TransformerFactory tf = TransformerFactory.newInstance();
 Transformer trans = tf.newTransformer();
 trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-trans.transform(new DOMSource(doc), new StreamResult(os2));
+trans.setOutputProperty(OutputKeys.INDENT, "no"); 
+trans.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
+              
+String xmlDecl = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>"
+                 + System.getProperty("line.separator");
+                 os2.write(xmlDecl.getBytes("ISO-8859-1"));
 
+
+trans.transform(new DOMSource(doc), new StreamResult(os2));
 
         
         
