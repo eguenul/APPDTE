@@ -15,6 +15,7 @@ import com.appdte.json.TotalesJson;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 import appventas.usuarios.Usuario;
+import com.appboleta.sii.sendBOLETA;
 import com.appdte.sii.utilidades.AppDTE;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -37,7 +38,8 @@ public class MovimientoController {
      objIdDteJson.setNumDTE(String.valueOf(arraymovimiento[9]));
      objIdDteJson.setTipoDTE(String.valueOf(arraymovimiento[8]));
      objIdDteJson.setFechaEmision((String) arraymovimiento[10]);
-     
+     objIdDteJson.setIndservicio("3");
+     objIdDteJson.setIndmntneto("2");
      String docsiicod = (String) arraymovimiento[8];
     
    //   if(docsiicod==52){
@@ -137,7 +139,7 @@ public class MovimientoController {
        objTotalJson.setMontototal((int) arraymovimiento[14]);
        objTotalJson.setTasaiva(19);
        
-       
+      
        DteJson objdtejson = new DteJson();
        objdtejson.setIdDte(objIdDteJson);
        objdtejson.setEmisor(objEmisorJson);
@@ -151,15 +153,27 @@ public class MovimientoController {
        objdtejson.setNumdte(String.valueOf(arraymovimiento[9]));
        objdtejson.setTipodte(String.valueOf(arraymovimiento[8]));
        final Gson gson = new Gson();
-	final String stringJSON = gson.toJson(objdtejson);   
-        System.out.print(stringJSON);
+       final String stringJSON = gson.toJson(objdtejson);   
+       System.out.print(stringJSON);
 
-        AppDTE objfirma = new AppDTE("eguenul","maullin.sii.cl");
-   
-/* */
-        String trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
-        
-        return trackid;
-            
+       String trackid;
+       
+       if("39".equals(objIdDteJson.getTipoDTE()) || "41".equals(objIdDteJson.getTipoDTE())){
+           /*
+               
+ public String sendBOLETA(String jsonDTE,  String loginuser,  String password,  String rutenvia) 
+           
+           */
+         sendBOLETA objBoleta = new sendBOLETA();
+         
+      trackid =   objBoleta.sendBOLETA(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut());
+       }else{
+        AppDTE objfirma = new AppDTE();  
+/* */   trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
+       }
+     
+
+
+return trackid;
  }
 }

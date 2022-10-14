@@ -16,9 +16,16 @@ private String tipodespacho;
 private String tipotraslado;
 private String frmapago;
 private String indservicio;
+private String indmntneto;
+
+public IdDteJson(){
+  this.indmntneto="0";
+
+    
+}
 
 
-    public String getFrmapago() {
+public String getFrmapago() {
         return frmapago;
     }
 
@@ -99,6 +106,20 @@ public String getTipoDTE() {
 
     public void setIndservicio(String indservicio) {
         this.indservicio = indservicio;
+    }
+
+    /**
+     * @return the indmntneto
+     */
+    public String getIndmntneto() {
+        return indmntneto;
+    }
+
+    /**
+     * @param indmntneto the indmntneto to set
+     */
+    public void setIndmntneto(String indmntneto) {
+        this.indmntneto = indmntneto;
     }
 
 

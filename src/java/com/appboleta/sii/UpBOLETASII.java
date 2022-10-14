@@ -25,12 +25,6 @@ import org.xml.sax.SAXException;
  * @author esteban
  */
 public class UpBOLETASII {
-    private final String urlenvironment;
-    
-    public UpBOLETASII(String urlenvironment){
-       this.urlenvironment = urlenvironment;
-        
-    }
  
     public String upBOLETA(String valortoken,String nombredte ,String rutemisor,String rutusuario) throws MalformedURLException, IOException, ParserConfigurationException, SAXException{
 
@@ -41,7 +35,7 @@ public class UpBOLETASII {
          
          ConfigAppDTE objconfig = new ConfigAppDTE();
          
-        URL url = new URL("https://pangal.sii.cl/recursos/v1/boleta.electronica.envio");
+        URL url = new URL("https://"+objconfig.getPost_boleta()+"/recursos/v1/boleta.electronica.envio");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST"); 
@@ -84,7 +78,6 @@ stringRequest =  "--9022632e1130lc4"+"\r\n"+
          "Content-Type: application/octet-stream"+"\r\n"+
         "Content-Transfer-Encoding: binary"+"\r\n"+
          "\r\n"+
-        "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>"+"\r\n"+
          contenido+"\r\n"+"\r\n"+  "--9022632e1130lc4--";
         
 

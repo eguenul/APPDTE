@@ -5,13 +5,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -156,18 +155,27 @@ public class EnvioDTE {
         
         
         /* agrego el dte ya firmado */
-           String cadena;
-         String stringnode = "";
-           String archivo = objconfig.getPathdte()+ nombredte+".xml";
-         FileReader f = new FileReader(archivo);
-       try (BufferedReader b = new BufferedReader(f)) {
-           while((cadena = b.readLine())!=null) {
-             stringnode = stringnode + cadena + "\n";
-           }}
           
-    File fichero = new File(objconfig.getPathdte()+nombredte+".xml");
+       
+    String archivo = objconfig.getPathdte()+nombredte+".xml";
+    DocumentBuilderFactory docFactory2 = DocumentBuilderFactory.newInstance();
+    DocumentBuilder docBuilder2 = docFactory2.newDocumentBuilder();
+    Document doc2;
+    doc2 = docBuilder2.parse(archivo);
+        
+    Node dte = doc2.getElementsByTagName("DTE").item(0);
+       
+    StringWriter buf = new StringWriter();
+    Transformer xform = TransformerFactory.newInstance().newTransformer();
+          
+    xform.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+    xform.setOutputProperty(OutputKeys.INDENT, "no");
+   
+    xform.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
     
-          
+    xform.transform(new DOMSource(dte), new StreamResult(buf));
+    String stringnode = buf.toString();
+  
     
     Node fragmentNode = docBuilder.parse(new InputSource(new StringReader(stringnode))).getDocumentElement();
     fragmentNode = this.doc.importNode(fragmentNode, true);

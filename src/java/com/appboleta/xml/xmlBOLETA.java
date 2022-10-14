@@ -77,6 +77,18 @@ public void crearXml(DteModel encabezadodte) throws TransformerConfigurationExce
                 Element indservicio = this.doc.createElement("IndServicio");
                 indservicio.setTextContent(encabezadodte.getIndservicio());
                 iddoc.appendChild(indservicio);
+                
+             
+                /*
+                IndMntNeto
+                
+                */
+                if ("2".equals(encabezadodte.getIndmntneto())){
+                
+                Element indmntneto = this.doc.createElement("IndMntNeto");
+                indmntneto.setTextContent(encabezadodte.getIndmntneto());
+                iddoc.appendChild(indmntneto);
+                }
               /*
                 
                 if(Integer.parseInt(tipodte.getTextContent())==52){

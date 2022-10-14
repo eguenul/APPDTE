@@ -6,6 +6,7 @@
 package com.appboleta.sii;
 
 import com.appdte.sii.cl.SignToken;
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -104,9 +105,9 @@ public class TokenBOLETA {
        
        
    public String requestToken(StringWriter writer) throws MalformedURLException, IOException, FileNotFoundException, ParserConfigurationException, SAXException {
-        
+        ConfigAppDTE objConfig = new ConfigAppDTE();
        
-        URL url = new URL("https://apicert.sii.cl/recursos/v1/boleta.electronica.token");
+        URL url = new URL("https://"+objConfig.getEnvironment_boleta()+"/recursos/v1/boleta.electronica.token");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST"); 

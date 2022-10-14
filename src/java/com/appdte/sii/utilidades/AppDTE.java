@@ -27,19 +27,11 @@ import appventas.movimientos.BlobDTE;
 import com.google.gson.Gson;
 import java.util.List;
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 
 
 public class AppDTE {
     String environment;
     
-    public AppDTE(String loginuser, String environment) throws FileNotFoundException, IOException{
-        
-     this.environment = environment;
-     
-     
-     
-    }
             
             
     

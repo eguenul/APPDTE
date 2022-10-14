@@ -66,9 +66,11 @@ if(objEmpresa.getEmpresaid()==0){
             <ul class="dropdown-menu">
                 <li><a href="movimiento">EMISION VENTA</a></li>
                 <li><a href="movimiento2">EMISION DOCUMENTO CON REFERENCIA</a></li>
+                <!--
                 <li><a href="cesion">CESION DE DTE</a></li>
                   <li><a href="AEC">CARGA ARCHIVO DE CESION</a></li>
-                  <li><a href="selempresa">SELECCION EMPRESA</a></li>
+                --> 
+                <li><a href="selempresa">SELECCION EMPRESA</a></li>
             </ul>
        </li>
        

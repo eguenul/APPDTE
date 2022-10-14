@@ -91,7 +91,13 @@ public class addMovimientoServlet extends HttpServlet {
                          campo = "NotaCredito";
                          break;
             
-                         
+                 case "39":
+                         campo = "BolAfectaE";
+                         break;
+                 
+                 case "41":
+                         campo = "BolExentaE";
+                         break;     
                          
               
                

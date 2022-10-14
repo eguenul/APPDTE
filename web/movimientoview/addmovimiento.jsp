@@ -324,8 +324,7 @@ Movimiento objMovimiento = (Movimiento) request.getSession().getAttribute("objMo
    </table> 
     
       <% } %>   
-      </td></tr>
- </table>
+     
       
     
    

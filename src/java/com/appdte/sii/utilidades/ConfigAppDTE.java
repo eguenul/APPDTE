@@ -29,7 +29,10 @@ public class ConfigAppDTE {
     private final String pathdownload;
     private final String serverauth;
     private final String serveracceptdte;
-            
+    private final String environment_boleta;        
+    private final String post_boleta;        
+    
+    
     
     public ConfigAppDTE() throws ParserConfigurationException, SAXException, IOException{
        
@@ -50,6 +53,8 @@ public class ConfigAppDTE {
            
           this.serverauth = prop.getProperty("server-auth");
           this.serveracceptdte = prop.getProperty("server-acceptdte");
+          this.environment_boleta = prop.getProperty("environment-boleta");
+          this.post_boleta = prop.getProperty("post-boleta");
         }
         
       
@@ -105,6 +110,20 @@ public class ConfigAppDTE {
 
     public String getServeracceptdte() {
         return serveracceptdte;
+    }
+
+    /**
+     * @return the environment_boleta
+     */
+    public String getEnvironment_boleta() {
+        return environment_boleta;
+    }
+
+    /**
+     * @return the post_boleta
+     */
+    public String getPost_boleta() {
+        return post_boleta;
     }
     
     

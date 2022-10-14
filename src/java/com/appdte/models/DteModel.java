@@ -10,7 +10,7 @@ public class DteModel {
    String cmnaemisor;
    String ciuemisor;
    private String indservicio;
-   
+   private String indmntneto;
    
    String rutreceptor;
    String rsreceptor;
@@ -297,6 +297,20 @@ public class DteModel {
 
     public void setMontoneto(int montoneto) {
         this.montoneto = montoneto;
+    }
+
+    /**
+     * @return the indmntneto
+     */
+    public String getIndmntneto() {
+        return indmntneto;
+    }
+
+    /**
+     * @param indmntneto the indmntneto to set
+     */
+    public void setIndmntneto(String indmntneto) {
+        this.indmntneto = indmntneto;
     }
 
     

@@ -5,6 +5,7 @@
  */
 package com.appboleta.sii;
 
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,8 +34,8 @@ public class seedBOLETA {
 /* URL url = new URL("https://apicert.sii.cl/recursos/v1/boleta.electronica.semilla");
  */
    StringBuilder result = new StringBuilder();
-
- URL url = new URL("https://apicert.sii.cl/recursos/v1/boleta.electronica.semilla");
+ConfigAppDTE objConfig = new ConfigAppDTE();
+ URL url = new URL("https://"+objConfig.getEnvironment_boleta()+"/recursos/v1/boleta.electronica.semilla");
       HttpURLConnection conn = (HttpURLConnection) url.openConnection();
       conn.setRequestMethod("GET");
       try (BufferedReader reader = new BufferedReader(

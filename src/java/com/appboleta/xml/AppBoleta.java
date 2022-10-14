@@ -35,16 +35,7 @@ import org.xml.sax.SAXException;
  */
 public class AppBoleta {
     
-    String environment;
-    
-    
-    public AppBoleta(String loginuser, String environment) throws FileNotFoundException, IOException{
-        
-     this.environment = environment;
-     
-     
-     
-    }
+   
     
 
  @SuppressWarnings("empty-statement")
@@ -56,12 +47,8 @@ public class AppBoleta {
   
    String pathdata = objconfig.getPathdata();
    String pathcaf = objconfig.getPathcaf();
-  
-   /* CARGO LOS PARAMETROS DE CONFIGURACION */
-   String pathdte = objconfig.getPathdte();
-   String urlenvironment = this.environment;
-   /* ingreso el DTE en formato JSON */
-             
+        /* CARGO LOS PARAMETROS DE CONFIGURACION */
+        /* ingreso el DTE en formato JSON */
              
    System.out.println("Reading JSON from a file");
    System.out.println("----------------------------");
@@ -99,7 +86,7 @@ public class AppBoleta {
     objdte.setTipodte(iddoc.getTipoDTE());
     objdte.setNumdte(iddoc.getNumDTE());
     objdte.setIndservicio(iddoc.getIndservicio());
-  
+    objdte.setIndmntneto(iddoc.getIndmntneto());
     FuncionesCAF objFuncionCAF = new FuncionesCAF();
     
     /* VALIDAMOS CAF */
@@ -173,11 +160,10 @@ public class AppBoleta {
   
     
    Timbre objTimbre = new Timbre(objconfig.getPathdte(),nombredte,pathdata,pathcaf);
-   String auxDescripcion;
 for (DetalleDteJson i :  detalle){     
   if(i.getNrolinea()==1){  
        objTimbre.setItem1(i.getNmbitem());
-       auxDescripcion = i.getNmbitem();
+       i.getNmbitem();
  }
    
     
@@ -198,7 +184,7 @@ for (DetalleDteJson i :  detalle){
     
   
   
-auxDescripcion = objTimbre.getItem1();
+objTimbre.getItem1();
 obj.guardarDocumento(nombredte,objconfig.getPathdte());
 objTimbre.creaTimbre(objdte, rutemisor);
   
@@ -209,7 +195,7 @@ objFirma.signDTE(objconfig.getPathdte(),nombredte,certificado,clave);
    
     /* ahora envuelvo el DTE en un sobre electrónico */
    
-EnvioBOLETA objenvio = new EnvioBOLETA(this.environment);
+EnvioBOLETA objenvio = new EnvioBOLETA(objconfig.getEnvironment_boleta());
 objenvio.generaEnvio(objdte,nombredte,objconfig.getPathdte(),rutEnvia);
   
 SignENVBOLETA objFirmaENV = new SignENVBOLETA();

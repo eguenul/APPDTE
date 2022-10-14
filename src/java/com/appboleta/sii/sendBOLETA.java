@@ -39,7 +39,7 @@ public class sendBOLETA {
     String  stringToken = objToken.getToken(valorsemilla, loginuser, password);
     
     
-    AppBoleta objBoleta = new AppBoleta("","");
+    AppBoleta objBoleta = new AppBoleta();
     
     
     
@@ -73,7 +73,7 @@ public class sendBOLETA {
     
     
     
-    UpBOLETASII objupload = new UpBOLETASII("");
+    UpBOLETASII objupload = new UpBOLETASII();
     
     
     
