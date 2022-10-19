@@ -6,6 +6,8 @@
 package appventas.movimientos;
 
 
+import appventa.tpoventa.TpoVenta;
+import appventa.tpoventa.TpoVentaModel;
 import appventas.cliprov.CliProv;
 import appventas.cliprov.CliProvModel;
 import appventas.documento.Documento;
@@ -83,6 +85,9 @@ public class MovimientoServlet extends HttpServlet {
       
       ArrayList<FPago> arrayfpago = objFPagoModel.listFpago();
               
+      TpoVentaModel objTpoVentaModel = new TpoVentaModel();
+      ArrayList<TpoVenta> arraytpoventa = objTpoVentaModel.listTpoVenta();
+      
       
        
       CliProv objcliprov = new CliProv();
@@ -108,7 +113,7 @@ public class MovimientoServlet extends HttpServlet {
     
       request.getSession().setAttribute("arrayfpago",arrayfpago);
     
-    
+     request.getSession().setAttribute("arraytpoventa",arraytpoventa);
     
     
        request.getSession().setAttribute("modulo", "movimiento");

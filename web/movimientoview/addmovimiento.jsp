@@ -1,3 +1,4 @@
+<%@page import="appventa.tpoventa.TpoVenta"%>
 <%@page import="appventas.fpago.FPago"%>
 <%@page import="appventas.movimientos.Despacho"%>
 <%@page import="appventas.movimientos.DetalleMovimiento"%>
@@ -190,7 +191,7 @@ Movimiento objMovimiento = (Movimiento) request.getSession().getAttribute("objMo
         </td>
         
         <td>
-            <select class="style-select">
+            <select name="FPago" class="style-select">
 <%        List<FPago> listfpago = (ArrayList<FPago>)request.getSession(true).getAttribute("arrayfpago");
  %>               
                 
@@ -199,9 +200,18 @@ Movimiento objMovimiento = (Movimiento) request.getSession().getAttribute("objMo
             <% } %>
             </select>
         </td>
-        <td>&nbsp;</td>
+        <td>TIPO VENTA (SOLO BOLETA)</td>
         
-        <td>&nbsp;</td>
+        <td><select name="TpoVenta" class="style-select">
+            <%
+             List<TpoVenta> listtpoventa = (ArrayList<TpoVenta>)request.getSession(true).getAttribute("arraytpoventa");
+                for (TpoVenta tpoventa: listtpoventa){
+           %>     
+           <option value="<% out.print(tpoventa.getIdtpoventa()); %>"><% out.print(tpoventa.getDescripcion()); %></option>
+
+                
+                <% } %>
+            </select></td>
         
         
     </tr><!-- comment -->

@@ -57,12 +57,12 @@ public class MovimientoModel {
         sql="INSERT INTO Movimiento(MovimientoFecha,CliProvId,TipoDocumentoId,NumDoc, \n"+
         "MovimientoValorNeto,MovimientoExento,MovimientoIva,MovimientoTotalBruto,\n"
         +"MovimientoTipo,DespachoId,TrasladoId,ReferenciaGlobal,\n"
-        +"OrdCompraNum,bolref,FchRef,FacAfecta,FacExenta,NotaCred,NotaDeb,CodSiiRef, EmpresaId) \n"+
+        +"OrdCompraNum,bolref,FchRef,FacAfecta,FacExenta,NotaCred,NotaDeb,CodSiiRef,idFpago,IdTpoVenta, EmpresaId) \n"+
         "values('"+fechadoc+"',"+String.valueOf(cliprovid) +","+String.valueOf(tipodoc)+"," +String.valueOf(numdoc)+
         ","+String.valueOf(montoafecto)+"," + String.valueOf(montoexento)+","+String.valueOf(montoiva) +
         ","+String.valueOf(montototal)+","+"1"+","+String.valueOf(objDespacho.getDespachoid())+","+String.valueOf(objTraslado.getTipotrasladoid())+",'"+ referencia +"' \n"
         +","+ objMovimiento.getOrdcompranum()+",'"+strbolref+"','"+fchref+"'"+","+objMovimiento.getFacafecta()+
-        ","+objMovimiento.getFacexenta()+","+objMovimiento.getNotacredito()+","+objMovimiento.getNotadebito()+","+objMovimiento.getCodsiiref()+ ","+ String.valueOf(empresaid) +  ")";
+        ","+objMovimiento.getFacexenta()+","+objMovimiento.getNotacredito()+","+objMovimiento.getNotadebito()+","+objMovimiento.getCodsiiref()+ ","+String.valueOf(objMovimiento.getFpago())+","+String.valueOf(objMovimiento.getTpoventa())+"," + String.valueOf(empresaid) +  ")";
        
         System.out.print(sql);
         

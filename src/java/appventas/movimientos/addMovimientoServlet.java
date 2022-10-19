@@ -47,6 +47,15 @@ public class addMovimientoServlet extends HttpServlet {
             int totalneto = Integer.parseInt(request.getParameter("TotalNeto"));
             int totalbruto = Integer.parseInt(request.getParameter("TotalBruto"));
             int tipodocumento =  Integer.parseInt(request.getParameter("TipoDocumento"));
+            int fpago = Integer.parseInt(request.getParameter("FPago"));
+            int tpoventa =  Integer.parseInt(request.getParameter("TpoVenta"));
+          
+            
+            
+            objMovimiento.setFpago(fpago);
+            objMovimiento.setTpoventa(tpoventa);
+            
+            
             objMovimiento.setTipodoc(tipodocumento);
             DocumentoModel objDocumento = new DocumentoModel();
             String fechadoc = request.getParameter("FechaDoc");

@@ -27,6 +27,9 @@ public class Movimiento {
    private Traslado tipotraslado;
    private boolean bolref;
    private String fchref;
+   private int tpoventa;
+   private int fpago;
+   
    
    private int guia = 0;
    private int facafecta = 0;
@@ -231,6 +234,22 @@ public class Movimiento {
 
     public void setCodsiiref(int codsiiref) {
         this.codsiiref = codsiiref;
+    }
+
+    public int getTpoventa() {
+        return tpoventa;
+    }
+
+    public void setTpoventa(int tpoventa) {
+        this.tpoventa = tpoventa;
+    }
+
+    public int getFpago() {
+        return fpago;
+    }
+
+    public void setFpago(int fpago) {
+        this.fpago = fpago;
     }
 
     

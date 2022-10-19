@@ -5,11 +5,9 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
-import java.io.File;
-import java.io.OutputStream;
 import java.io.StringWriter;
-import java.nio.file.Files;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,21 +27,17 @@ import org.w3c.dom.NodeList;
 
 
 public class PrintDTE{
- 
+    
 public PrintDTE(){
    
     
-}
-    
-    public void printDTE(String rutemisor,String foliodte, String codsii) throws Exception {
+}	
+    public void printDTE(String parmnombredte,String numresol,String anoresol) throws Exception {
 
-        ConfigAppDTE objConfig = new ConfigAppDTE();
-      
-       String auxrutemisor = rutemisor;
        
-       String[] arrayrutemisor = rutemisor.split("-");
-       rutemisor = arrayrutemisor[0];
-       String nombredte = objConfig.getPathdte()+"ENVDTE"+rutemisor.trim()+"F"+foliodte+"T"+codsii;
+DecimalFormat formatea = new DecimalFormat("###,###.##");
+    
+       String nombredte = parmnombredte;
        
  
          
@@ -55,8 +49,8 @@ public PrintDTE(){
        
        
         
-        /* apunto donde estÃ¡ el xml */
-        String filepath = nombredte.trim()+".xml";
+        /* apunto donde está el xml */
+        String filepath = nombredte;
 	DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 System.out.print(filepath);
@@ -73,11 +67,9 @@ System.out.print(filepath);
         
         Node NroResol = doc.getElementsByTagName("NroResol").item(0); 
         
-        Node FchResol = doc.getElementsByTagName("FchResol").item(0);             
         
-        String[] arrayfechresol = FchResol.getTextContent().split("-");
        
-        String anoresol = arrayfechresol[0];
+        
         
         
         
@@ -85,7 +77,7 @@ System.out.print(filepath);
         
         /* texto resolucion */
 
-        String textores = "ResoluciÃ³n Ex. SII NÂ° " + NroResol.getTextContent() + " de "+ anoresol;
+        String textores = "Resolución Ex. SII N° " + numresol + " de "+ anoresol;
 
 
 
@@ -93,6 +85,10 @@ System.out.print(filepath);
         
         /* datos del receptor */
         Node rutreceptor = doc.getElementsByTagName("RUTRecep").item(0);
+        Node rutemisor = doc.getElementsByTagName("RUTEmisor").item(0);
+        Node tipodte = doc.getElementsByTagName("TipoDTE").item(0);
+        Node foliodte= doc.getElementsByTagName("Folio").item(0);
+        
         Node razreceptor = doc.getElementsByTagName("RznSocRecep").item(0);
         Node giroreceptor = doc.getElementsByTagName("GiroRecep").item(0);
         Node dirreceptor = doc.getElementsByTagName("DirRecep").item(0);
@@ -143,20 +139,26 @@ System.out.print(filepath);
         
         Node RznSoc = doc.getElementsByTagName("RznSoc").item(0);
         /* cargo el template pdf */
-        PdfReader reader = new PdfReader(objConfig.getPathtemplate()+"template.pdf");
-        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(objConfig.getPathpdf()+"ENVDTE"+rutemisor.trim()+"F"+foliodte+"T"+codsii+".pdf"));
+        PdfReader reader = new PdfReader("/home/esteban/appdte/template/template.pdf");
+        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(nombredte+"CEDIBLE.pdf"));
         PdfContentByte content = stamper.getOverContent(1);
         BaseFont bf=BaseFont.createFont(BaseFont.HELVETICA,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
         BaseFont bf2=BaseFont.createFont(BaseFont.HELVETICA_BOLD,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
         content.setFontAndSize(bf2, 14);
          /* ahora imprimo el rut y el folio del recuadro */
         content.setTextMatrix(470, 739);
-        content.showText(auxrutemisor);
+        
+        String arrayrutemisor[] = rutemisor.getTextContent().split("-");
+        
+        String auxrutemisor = formatea.format(Integer.parseInt(arrayrutemisor[0]));
+        String auxdvemisor = arrayrutemisor[1];
+        
+        content.showText(auxrutemisor+"-"+auxdvemisor);
          
        int y1 = 720;
         content.setTextMatrix(410, y1);
       
-         switch(codsii){
+         switch(tipodte.getTextContent()){
             
             case "33":
                        content.showText("FACTURA ELECTRONICA");
@@ -196,11 +198,11 @@ System.out.print(filepath);
         
         
         content.setTextMatrix(445, y1);
-        content.showText("NÂº ");
+        content.showText("Nº");
         
         
         content.setTextMatrix(465, y1);
-        content.showText(foliodte);
+        content.showText(foliodte.getTextContent());
         
         content.setFontAndSize(bf2, 13);
         content.setTextMatrix(457,654); 
@@ -276,7 +278,12 @@ System.out.print(filepath);
                             System.out.println("Codigo: " + element2.getElementsByTagName("VlrCodigo").item(0).getTextContent());            
                                 content.setFontAndSize(bf,10);
                                 content.setTextMatrix(25,y); 
+                                if(element2.getElementsByTagName("VlrCodigo").item(0).getTextContent()==null){
+                                    
+                                }else{
+                                    
                                 content.showText( element2.getElementsByTagName("VlrCodigo").item(0).getTextContent());
+                                }
                                 
                         }
                         
@@ -287,16 +294,26 @@ System.out.print(filepath);
                     content.setTextMatrix(100,y); 
                     content.showText(element.getElementsByTagName("NmbItem").item(0).getTextContent());
                     
+                    
+                    
+            if(element.getElementsByTagName("QtyItem").item(0)==null){
+                
+                
+            }else{   
                     content.setFontAndSize(bf,10);
                     content.setTextMatrix(250,y); 
-                    content.showText(element.getElementsByTagName("QtyItem").item(0).getTextContent());
-                    
-                    
+                    content.showText(formatea.format(Integer.parseInt(element.getElementsByTagName("QtyItem").item(0).getTextContent())));
+            }       
         
+            
+           if(element.getElementsByTagName("PrcItem").item(0)==null){
+               
+               
+           }else{
                     content.setFontAndSize(bf,10);
                     content.setTextMatrix(340,y); 
-                    content.showText(element.getElementsByTagName("PrcItem").item(0).getTextContent());
-                    
+               content.showText(formatea.format(Integer.parseInt(element.getElementsByTagName("PrcItem").item(0).getTextContent())));
+                     }
                    if(element.getElementsByTagName("DescuentoPct").item(0)==null){
                          content.setFontAndSize(bf,10);
                          content.setTextMatrix(430,y); 
@@ -318,12 +335,33 @@ System.out.print(filepath);
                     
                     content.setFontAndSize(bf,10);
                     content.setTextMatrix(490,y); 
-                    content.showText(element.getElementsByTagName("MontoItem").item(0).getTextContent()); 
+                    content.showText(formatea.format(Integer.parseInt(element.getElementsByTagName("MontoItem").item(0).getTextContent()))); 
                     y = y - 20;
                     
                 
                 }
             }
+              
+              
+   
+                   if(doc.getElementsByTagName("DscRcgGlobal").item(0)==null){            
+                        
+                   }else{
+                       
+                       
+                       
+                         Node tipomov = doc.getElementsByTagName("TpoMov").item(0);
+                         Node ValorDR = doc.getElementsByTagName("ValorDR").item(0);
+                         Node TpoValor = doc.getElementsByTagName("TpoValor").item(0);
+                          content.setTextMatrix(250,y);
+                             if("D".equals(tipomov.getTextContent())){
+                                content.showText("DESCUENTO GLOBAL ITEMS AFECTO " + ValorDR.getTextContent()+TpoValor.getTextContent());
+                             }
+                             if("R".equals(tipomov.getTextContent())){
+                                content.showText("RECARGO GLOBAL ITEMS AFECTO " + ValorDR.getTextContent()+TpoValor.getTextContent());
+                             }
+                        }
+                   
                      
 /* campo para imprimir referencia */
 y = y-20;
@@ -333,6 +371,12 @@ content.showText("DATOS ADICIONALES");
 
 y = y - 20;             
 content.setTextMatrix(25,y); 
+
+if(doc.getElementsByTagName("RazonRef").item(0)==null){
+    
+    
+}else{
+
 Node nodereferencia =  doc.getElementsByTagName("RazonRef").item(0);
 content.showText("REFERENCIA GENERAL: "+nodereferencia.getTextContent());
 /* si la referencia es una nota de credito */ 
@@ -359,7 +403,7 @@ if ("0".equals(folioref.getTextContent().trim())==false){
             content.setTextMatrix(25,y); 
             content.showText("FECHA: "+formatFecha(fecharef.getTextContent())); 
 }               
-     /*
+}    /*
        y = y - 20;
         content.setFontAndSize(bf,10);
         content.setTextMatrix(20,y); 
@@ -369,21 +413,21 @@ if ("0".equals(folioref.getTextContent().trim())==false){
         /* Imprimo totales del documento */
        content.setFontAndSize(bf,10);
        content.setTextMatrix(480,90); 
-       content.showText(auxmntneto);
+       content.showText(formatea.format(Integer.parseInt(auxmntneto)));
        
        content.setFontAndSize(bf,10);
        content.setTextMatrix(480,70); 
-       content.showText(auxmntexe);
+       content.showText(formatea.format(Integer.parseInt(auxmntexe)));
      
      
        content.setFontAndSize(bf,10);
        content.setTextMatrix(480,50); 
-       content.showText(auxiva);
+       content.showText(formatea.format(Integer.parseInt((auxiva))));
       
        
        content.setFontAndSize(bf,10);
        content.setTextMatrix(480,30); 
-       content.showText(mnttotal.getTextContent());
+       content.showText(formatea.format(Integer.parseInt(mnttotal.getTextContent())));
         
        
        content.setFontAndSize(bf,10);
@@ -391,16 +435,27 @@ if ("0".equals(folioref.getTextContent().trim())==false){
        content.showText(textores); 
        
        
+       content.setFontAndSize(bf,10);
+       content.setTextMatrix(10,10);
+       content.showText("CEDIBLE"); 
+   
+       
+       
+       
       
-        /* tomo el nodo ted ya firmado e imprimo el timbre electrÃ³nico */ 
+        /* tomo el nodo ted ya firmado e imprimo el timbre electrónico */ 
         StringWriter buf = new StringWriter();
         Transformer xform = TransformerFactory.newInstance().newTransformer();
         xform.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-                  
+         xform.setOutputProperty(OutputKeys.INDENT, "no");
+        
         xform.transform(new DOMSource(ted), new StreamResult(buf));
         String timbre;
         timbre = buf.toString();
-     
+      
+      
+      
+                
         System.out.print(timbre);
         
         BarcodePDF417 barcode = new BarcodePDF417();
@@ -411,7 +466,7 @@ if ("0".equals(folioref.getTextContent().trim())==false){
 	barcode.setText(timbre.getBytes("ISO-8859-1"));
         barcode.setOptions(BarcodePDF417.PDF417_FORCE_BINARY);
        	com.itextpdf.text.Image image = barcode.getImage();
-        /* tamaÃ±o de la imagen */
+        /* tama?o de la imagen */
         image.scaleAbsolute(184, 72);
         /* ahora establezco las coordenadas del documento */
 	image.setAbsolutePosition(60, 73);		
@@ -454,7 +509,16 @@ if ("0".equals(folioref.getTextContent().trim())==false){
             case "801":
                      nombredoc = "ORDEN DE COMPRA";   
                      break;                 
+         
+                     
+            case "39":
+                     nombredoc = "BOLETA ELECTRONICA";   
+                     break;                 
+                  
             
+            case "41":
+                     nombredoc = "BOLETA EXENTA ELECTRONICA";   
+                     break;                          
                      
         }
         return nombredoc;
@@ -469,6 +533,6 @@ if ("0".equals(folioref.getTextContent().trim())==false){
         String fecha= output.format(dateValue);
         return fecha;
     }
-       
+     
  }
 
