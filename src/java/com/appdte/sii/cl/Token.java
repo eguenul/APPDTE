@@ -5,6 +5,7 @@
  */
 package com.appdte.sii.cl;
 
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -110,7 +111,7 @@ public class Token {
          String contenidosemilla = "";
            
           
-         
+         ConfigAppDTE objConfig = new ConfigAppDTE();
        contenidosemilla = contenidosemilla + writer.toString() + "\n" ;
          
          String original1 = "<?xml version="+"\""+"1.0"+"\"" +"?>";
@@ -120,7 +121,7 @@ public class Token {
        System.out.print(contenidosemilla);
        
       
-   String direccion="https://"+urlauth+"/DTEWS/GetTokenFromSeed.jws?WSDL";
+   String direccion="https://"+objConfig.getPathenvironment()+"/DTEWS/GetTokenFromSeed.jws?WSDL";
    
     URL url = new URL (direccion);
     HttpURLConnection conexion = (HttpURLConnection) url.openConnection();

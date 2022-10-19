@@ -2,6 +2,7 @@ package com.appdte.sii.cl;
 
 
 
+import com.appdte.sii.utilidades.ConfigAppDTE;
 import javax.xml.parsers.DocumentBuilder;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -28,7 +29,10 @@ public class Semilla {
 public  String getSeed(String urlenvironment) throws  Exception {
  
     try{
-    String direccion = "https://"+urlenvironment+"/DTEWS/CrSeed.jws?WSDL";
+        
+        ConfigAppDTE objConfig = new ConfigAppDTE();
+        
+    String direccion = "https://"+objConfig.getPathenvironment()+"/DTEWS/CrSeed.jws?WSDL";
   
    
    
@@ -82,6 +86,7 @@ String salida = new String();
     System.out.print(salida);
     String valorsemilla;
     valorsemilla =  readSeed(salida);
+    
     return valorsemilla;          
     
     

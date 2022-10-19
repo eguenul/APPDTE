@@ -225,7 +225,7 @@ objFirmaENV.signENVDTE(objconfig.getPathdte(),nombredte,certificado,clave);
   
  
 String valorsemilla =  objsemilla.getSeed(urlenvironment);
- 
+ System.out.print("el valor de la semilla " + valorsemilla);
  Token objtoken = new Token(urlenvironment);
  String valortoken =  objtoken.getToken(valorsemilla,certificado,clave,nombredte);
 

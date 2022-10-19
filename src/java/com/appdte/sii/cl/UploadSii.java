@@ -40,7 +40,7 @@ public class UploadSii{
          
          ConfigAppDTE objconfig = new ConfigAppDTE();
          
-        URL url = new URL("https://"+this.urlenvironment+"/cgi_dte/UPL/DTEUpload");
+        URL url = new URL("https://"+objconfig.getPathenvironment()+"/cgi_dte/UPL/DTEUpload");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST"); 
