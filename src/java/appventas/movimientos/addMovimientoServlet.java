@@ -287,12 +287,17 @@ public class addMovimientoServlet extends HttpServlet {
          
           PrintDTE objPrint = new PrintDTE();
           System.out.print(objConfig.getPathcaf());
-           objPrint.printDTE(rutempresa.trim(), String.valueOf(numcorrelativo), codsii);
-           String[] arrayrutemisor = rutempresa.split("-");
-           rutempresa = arrayrutemisor[0];
-           //request.getSession().setAttribute("nombre_param", "valor_param");
+          String[] arrayrutemisor = rutempresa.split("-");
+          
+           objPrint.printDTE(arrayrutemisor[0]+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
+        
+         
+       
+           
+
+          //request.getSession().setAttribute("nombre_param", "valor_param");
            request.getSession().setAttribute("trackid",trackid);
-           request.getSession().setAttribute("nombredocumento","ENVDTE"+rutempresa.trim()+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
+           request.getSession().setAttribute("nombredocumento","ENVDTE"+arrayrutemisor[0]+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
            request.getSession().setAttribute("tipovista","emision");
            response.sendRedirect("movimientoview/successfull.jsp");
            

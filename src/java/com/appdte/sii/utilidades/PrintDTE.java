@@ -32,9 +32,9 @@ public PrintDTE(){
    
     
 }	
-    public void printDTE(String parmnombredte,String numresol,String anoresol) throws Exception {
+    public void printDTE(String parmnombredte) throws Exception {
 
-       
+       ConfigAppDTE objConfig = new ConfigAppDTE();
 DecimalFormat formatea = new DecimalFormat("###,###.##");
     
        String nombredte = parmnombredte;
@@ -50,10 +50,10 @@ DecimalFormat formatea = new DecimalFormat("###,###.##");
        
         
         /* apunto donde está el xml */
-        String filepath = nombredte;
+        String filepath = objConfig.getPathdte()+"ENVDTE"+nombredte+".xml";
 	DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-System.out.print(filepath);
+        System.out.print(filepath);
         Document doc = docBuilder.parse(filepath.trim());
         
         
@@ -77,7 +77,7 @@ System.out.print(filepath);
         
         /* texto resolucion */
 
-        String textores = "Resolución Ex. SII N° " + numresol + " de "+ anoresol;
+        String textores = "Resolución Ex. SII N° " + NroResol.getTextContent() + "" + " de "+ "";
 
 
 
@@ -139,8 +139,8 @@ System.out.print(filepath);
         
         Node RznSoc = doc.getElementsByTagName("RznSoc").item(0);
         /* cargo el template pdf */
-        PdfReader reader = new PdfReader("/home/esteban/appdte/template/template.pdf");
-        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(nombredte+"CEDIBLE.pdf"));
+        PdfReader reader = new PdfReader(objConfig.getPathtemplate()+ "template.pdf");
+        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(objConfig.getPathpdf()+"ENVDTE"+nombredte+".pdf"));
         PdfContentByte content = stamper.getOverContent(1);
         BaseFont bf=BaseFont.createFont(BaseFont.HELVETICA,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
         BaseFont bf2=BaseFont.createFont(BaseFont.HELVETICA_BOLD,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);

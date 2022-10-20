@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/report/PdfServlet.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appdte/sii/cl/Token.java</file>
             <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/addMovimientoServlet.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/MovimientoController.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/WEB-INF/glassfish-web.xml</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/Movimiento.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/movimientoview/successfull.jsp</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appdte/sii/utilidades/getBytesDTE.java</file>
+            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appdte/sii/utilidades/Venta.java</file>
             <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/com/appdte/sii/utilidades/PrintDTE.java</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/web/movimientoview/addmovimiento.jsp</file>
-            <file>file:/home/esteban/proyectos_web/facturador_web/AppDTE/src/java/appventas/movimientos/MovimientoModel.java</file>
         </group>
     </open-files>
 </project-private>
