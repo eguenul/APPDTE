@@ -1,10 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.appdte.sii.utilidades;
+
 import com.itextpdf.text.pdf.BarcodePDF417;
-import java.io.FileOutputStream;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
+import java.io.FileOutputStream;
 import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -23,16 +28,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
- 
-
-
-public class PrintDTE{
+/**
+ *
+ * @author esteban
+ */
+public class PrintBOLETA {
     
-public PrintDTE(){
-   
-    
-}	
-public void printDTE(String parmnombredte) throws Exception {
+    public void printBOLETA(String parmnombredte) throws Exception {
 
        ConfigAppDTE objConfig = new ConfigAppDTE();
        DecimalFormat formatea = new DecimalFormat("###,###.##");
@@ -58,7 +60,7 @@ public void printDTE(String parmnombredte) throws Exception {
         
         
         /* datos del emisor */
-        Node giroemisor = doc.getElementsByTagName("GiroEmis").item(0);
+        Node giroemisor = doc.getElementsByTagName("GiroEmisor").item(0);
         Node DirOrigen  = doc.getElementsByTagName("DirOrigen").item(0);    
         Node ted = doc.getElementsByTagName("TED").item(0); 
         Node ciuemisor = doc.getElementsByTagName("CiudadOrigen").item(0); 
@@ -91,9 +93,11 @@ public void printDTE(String parmnombredte) throws Exception {
         
         Node razreceptor = doc.getElementsByTagName("RznSocRecep").item(0);
         Node giroreceptor = doc.getElementsByTagName("GiroRecep").item(0);
+ /*
         Node dirreceptor = doc.getElementsByTagName("DirRecep").item(0);
         Node cmnareceptor = doc.getElementsByTagName("CmnaRecep").item(0);
         Node ciureceptor = doc.getElementsByTagName("CiudadRecep").item(0);
+   */
         Node fechaemis = doc.getElementsByTagName("FchEmis").item(0);
         
         String auxmntneto;
@@ -137,7 +141,7 @@ public void printDTE(String parmnombredte) throws Exception {
         
         
         
-        Node RznSoc = doc.getElementsByTagName("RznSoc").item(0);
+        Node RznSoc = doc.getElementsByTagName("RznSocEmisor").item(0);
         /* cargo el template pdf */
         PdfReader reader = new PdfReader(objConfig.getPathtemplate()+ "template.pdf");
         PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(objConfig.getPathpdf()+"ENVDTE"+nombredte+".pdf"));
@@ -160,37 +164,15 @@ public void printDTE(String parmnombredte) throws Exception {
       
          switch(tipodte.getTextContent()){
             
-            case "33":
-                       content.showText("FACTURA ELECTRONICA");
+            case "41":
+                       content.showText("BOLETA EXENTA ELECTRONICA");
                        break;
-             /*          
+                       
             case "39":
                        content.showText("BOLETA ELECTRONICA");
                        break;
-             */       
-            case "52":
-                       content.showText("GUIA DE DESPACHO");
-                       y1 = y1-20;
-                       content.setTextMatrix(420, y1);
-                       content.showText("ELECTRONICA");
-                       break;
-                              
-            case "61":
-                      content.showText("NOTA DE CREDITO");
-                      y1 = y1 - 20;
-                      content.setTextMatrix(420, y1); 
-                      content.showText("ELECTRONICA");
-                      break;
+                   
             
-                      
-              case "34":
-                      content.showText("FACTURA EXENTA");
-                      y1 = y1 - 20;
-                      content.setTextMatrix(420, y1); 
-                      content.showText("ELECTRONICA");
-                      break;
-                       
-                      
             
         }
         
@@ -227,8 +209,10 @@ public void printDTE(String parmnombredte) throws Exception {
         
         content.setTextMatrix(429,576); 
         content.showText(rutreceptor.getTextContent());
+        /*
         content.setTextMatrix(429,556); 
         content.showText(ciureceptor.getTextContent());
+       */
         content.setTextMatrix(429,536); 
         content.showText("-");
         content.setTextMatrix(429,516); 
@@ -240,16 +224,19 @@ public void printDTE(String parmnombredte) throws Exception {
         
         content.setTextMatrix(109,576); 
         content.showText(razreceptor.getTextContent());
-        
+        /*
         content.setTextMatrix(109,556); 
         content.showText(dirreceptor.getTextContent());
+        */
         
+        /*
         content.setTextMatrix(109,536); 
         content.showText(cmnareceptor.getTextContent());
-        
+        */
+        /*
         content.setTextMatrix(109,516); 
         content.showText(giroreceptor.getTextContent());
-     
+     */
         /* cargo DETALLE DEL DOCUMENTO */
         
         
@@ -534,5 +521,5 @@ if ("0".equals(folioref.getTextContent().trim())==false){
         return fecha;
     }
      
- }
-
+    
+}

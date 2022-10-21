@@ -15,10 +15,15 @@ import com.appdte.json.TotalesJson;
 import appventas.empresa.Empresa;
 import appventas.empresa.EmpresaModel;
 import appventas.usuarios.Usuario;
+import com.appboleta.json.Track;
 import com.appboleta.sii.sendBOLETA;
 import com.appdte.sii.utilidades.AppDTE;
 import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
@@ -166,10 +171,21 @@ public class MovimientoController {
            */
          sendBOLETA objBoleta = new sendBOLETA();
          
-      trackid =   objBoleta.sendBOLETA(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut());
+      String stringBOLETA =   objBoleta.sendBOLETA(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut());
+
+        Gson gson2 = new Gson(); 
+        
+        InputStream isjson = new ByteArrayInputStream(stringBOLETA.getBytes("UTF-8")); 
+        BufferedReader br1 = new BufferedReader(new InputStreamReader(isjson));
+        
+        
+       Track objtrack = gson2.fromJson(br1, Track.class);
+   trackid = objtrack.getTrackid();
+
+
        }else{
         AppDTE objfirma = new AppDTE();  
-/* */   trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
+   trackid = objfirma.sendDTE(stringJSON, objUsuario.getLogin(),objUsuario.getPassword(), objUsuario.getRut(), false);
        }
      
 

@@ -11,6 +11,7 @@ import appventas.producto.ProductoModel;
 import appventas.usuarios.Usuario;
 import appventas.usuarios.UsuarioModel;
 import com.appdte.sii.utilidades.ConfigAppDTE;
+import com.appdte.sii.utilidades.PrintBOLETA;
 import com.appdte.sii.utilidades.PrintDTE;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -284,14 +285,17 @@ public class addMovimientoServlet extends HttpServlet {
             BlobDTE objblob = new BlobDTE();
             objblob.getXMLDTE(idmovimiento);
          
-         
-          PrintDTE objPrint = new PrintDTE();
-          System.out.print(objConfig.getPathcaf());
           String[] arrayrutemisor = rutempresa.split("-");
-          
+         
+          if("39".equals(codsii) || "41".equals(codsii)){
+               PrintBOLETA objPrint = new PrintBOLETA();
+            objPrint.printBOLETA(arrayrutemisor[0]+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
+              
+          }else{
+          PrintDTE objPrint = new PrintDTE();
            objPrint.printDTE(arrayrutemisor[0]+"F"+String.valueOf(numcorrelativo)+"T"+codsii);
         
-         
+          }
        
            
 

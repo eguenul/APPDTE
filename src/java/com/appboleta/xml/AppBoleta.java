@@ -42,6 +42,7 @@ public class AppBoleta {
     
     public void generaBoleta(String stringDTE,String certificado,String clave,String rutEnvia, boolean blReferencia) throws TransformerException, ParserConfigurationException, SAXException, IOException, Exception{
 
+        System.out.print(stringDTE);
    ConfigAppDTE objconfig = new ConfigAppDTE();
    
   
@@ -146,7 +147,7 @@ public class AppBoleta {
     
     /* DEFINO EL TOTAL Y TASA DE IMPUESTO */
     
-    objdte.setMontoneto(totales.getMontoneto());
+    objdte.setMontoneto(totales.getMontoafecto());
     objdte.setMontexento(totales.getMontoexento());
     objdte.setMontoiva(totales.getMontoiva());
     objdte.setTasaiva(totales.getTasaiva());
