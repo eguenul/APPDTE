@@ -305,10 +305,12 @@ public void agregaDetalle(DetalleDteModel detalledte){
               
                 transformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
                 transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
-              
+             
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes"); 
-                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "0"); 
-                            //luego guardo el documento    
+/*        
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "0"); 
+*/  
+                          //luego guardo el documento    
                 DOMSource source = new DOMSource(this.doc);              
                 StreamResult result = new StreamResult(new File(pathdte+  nombredte+".xml"));
 		transformer.transform(source, result);                

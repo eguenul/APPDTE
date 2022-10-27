@@ -51,15 +51,15 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-
- 
-
 public class SignDTE {
+
+
     
     public void signDTE(String pathdte,String nombredte,String pathcertificado, String clave) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException, UnrecoverableEntryException, KeyException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerConfigurationException, TransformerException{
-    System.setProperty("com.sun.org.apache.xml.internal.security.ignoreLineBreaks","true");
-     
-        
+System.setProperty("com.sun.org.apache.xml.internal.security.lineFeedOnly", "true"); 
+      System.setProperty("com.org.apache.xml.internal.security.ignoreLineBreaks","true");
+  
+   
         ConfigAppDTE objConfigAppDTE = new ConfigAppDTE();
         
        

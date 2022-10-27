@@ -51,7 +51,7 @@ public class PrintBOLETA {
        
        
         
-        /* apunto donde está el xml */
+        /* apunto donde esta el xml */
         String filepath = objConfig.getPathdte()+"ENVDTE"+nombredte+".xml";
 	DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -79,7 +79,11 @@ public class PrintBOLETA {
         
         /* texto resolucion */
 
-        String textores = "Resolución Ex. SII N° " + NroResol.getTextContent() + "" + " de "+ "";
+     int intvalue2 = 243;
+        char convertedchar2 = (char)intvalue2;
+        
+
+        String textores = "Resoluci"+convertedchar2+ "n Ex. SII No " + NroResol.getTextContent() + "" + " de "+ "";
 
 
 
@@ -178,9 +182,10 @@ public class PrintBOLETA {
         
         y1 = y1 - 20;
         
-        
+       int intvalue = 186;
+        char convertedchar = (char)intvalue;
         content.setTextMatrix(445, y1);
-        content.showText("Nº");
+        content.showText("N" + convertedchar);
         
         
         content.setTextMatrix(465, y1);
@@ -430,7 +435,7 @@ if ("0".equals(folioref.getTextContent().trim())==false){
        
        
       
-        /* tomo el nodo ted ya firmado e imprimo el timbre electrónico */ 
+        /* tomo el nodo ted ya firmado e imprimo el timbre electrï¿½nico */ 
         StringWriter buf = new StringWriter();
         Transformer xform = TransformerFactory.newInstance().newTransformer();
         xform.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");

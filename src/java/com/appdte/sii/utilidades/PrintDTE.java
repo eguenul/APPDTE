@@ -49,7 +49,7 @@ public void printDTE(String parmnombredte) throws Exception {
        
        
         
-        /* apunto donde está el xml */
+        /* apunto donde esta el xml */
         String filepath = objConfig.getPathdte()+"ENVDTE"+nombredte+".xml";
 	DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -77,7 +77,7 @@ public void printDTE(String parmnombredte) throws Exception {
         
         /* texto resolucion */
 
-        String textores = "Resolución Ex. SII N° " + NroResol.getTextContent() + "" + " de "+ "";
+        String textores = "Resoluciï¿½n Ex. SII Nï¿½ " + NroResol.getTextContent() + "" + " de "+ "";
 
 
 
@@ -198,7 +198,7 @@ public void printDTE(String parmnombredte) throws Exception {
         
         
         content.setTextMatrix(445, y1);
-        content.showText("Nº");
+        content.showText("Nï¿½");
         
         
         content.setTextMatrix(465, y1);
@@ -443,7 +443,7 @@ if ("0".equals(folioref.getTextContent().trim())==false){
        
        
       
-        /* tomo el nodo ted ya firmado e imprimo el timbre electrónico */ 
+        /* tomo el nodo ted ya firmado e imprimo el timbre electrï¿½nico */ 
         StringWriter buf = new StringWriter();
         Transformer xform = TransformerFactory.newInstance().newTransformer();
         xform.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");

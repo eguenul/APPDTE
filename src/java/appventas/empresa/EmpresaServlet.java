@@ -31,7 +31,7 @@ public class EmpresaServlet extends HttpServlet {
                  
                            objEmpresa.setEmpresarut(request.getParameter("EmpresaRut"));
                           
-                     
+                   
                            
                             objEmpresa.setEmpresaraz(request.getParameter("EmpresaRaz"));
                             objEmpresa.setEmpresarut(request.getParameter("EmpresaRut").trim());
