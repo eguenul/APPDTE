@@ -7,11 +7,19 @@ package appventas.consultassii;
 
 import appventas.documento.Documento;
 import appventas.documento.DocumentoModel;
+import appventas.empresa.Empresa;
+import appventas.empresa.EmpresaModel;
+import appventas.movimientos.MovimientoModel;
 import appventas.movimientos.MovimientoModel2;
+import appventas.usuarios.Usuario;
+import appventas.usuarios.UsuarioModel;
+import com.appdte.sii.funcionesws.ConsultaDTE;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,12 +29,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-
 /**
  *
  * @author esteban
  */
-public class ConsultaDTE extends HttpServlet {
+public class ConsultaSII extends HttpServlet {
 
 @Override
 public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,7 +58,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
         
         getServletConfig().getServletContext().getRequestDispatcher("/consultasiiview/listdocument.jsp").forward(request,response);
     } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {
-        Logger.getLogger(ConsultaDTE.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ConsultaSII.class.getName()).log(Level.SEVERE, null, ex);
     }
     
 }
@@ -96,7 +103,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
                 
                 
             case "CONSULTADTE":
-                /*
+                
                 
                       String auxlogin = (String) request.getSession().getAttribute("login");
                       UsuarioModel objUsuarioModel = new UsuarioModel();
@@ -266,15 +273,14 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
                 
                 
                 
-                */
-                
+                                
                 
                 
         }
-    } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException ex) {
-        Logger.getLogger(ConsultaDTE.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (IOException | NumberFormatException | ServletException ex) {
-        Logger.getLogger(ConsultaDTE.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException | ClassNotFoundException | ParserConfigurationException | SAXException | IOException | NumberFormatException | ServletException ex) {
+        Logger.getLogger(ConsultaSII.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (Exception ex) {
+        Logger.getLogger(ConsultaSII.class.getName()).log(Level.SEVERE, null, ex);
     }
     
     

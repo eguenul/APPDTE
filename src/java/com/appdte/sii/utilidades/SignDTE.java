@@ -56,8 +56,10 @@ public class SignDTE {
 
     
     public void signDTE(String pathdte,String nombredte,String pathcertificado, String clave) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException, UnrecoverableEntryException, KeyException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerConfigurationException, TransformerException{
-System.setProperty("com.sun.org.apache.xml.internal.security.lineFeedOnly", "true"); 
-      System.setProperty("com.org.apache.xml.internal.security.ignoreLineBreaks","true");
+/*
+        System.setProperty("com.sun.org.apache.xml.internal.security.lineFeedOnly", "true"); 
+  */
+        System.setProperty("com.org.apache.xml.internal.security.ignoreLineBreaks","true");
   
    
         ConfigAppDTE objConfigAppDTE = new ConfigAppDTE();

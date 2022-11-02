@@ -315,7 +315,7 @@
 
 <servlet>
    <servlet-name>consultadte</servlet-name>
-   <servlet-class>appventas.consultassii.ConsultaDTEServlet</servlet-class>
+   <servlet-class>appventas.consultassii.ConsultaSII</servlet-class>
 </servlet>
 <servlet-mapping>
   <servlet-name>consultadte</servlet-name>
