@@ -116,8 +116,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
                    
                       int iddoc = Integer.parseInt(request.getParameter("MovimientoId"));
                 
-                      ConsultaDTE objConsultaDTE = new ConsultaDTE();
-                      MovimientoModel objMovModel = new MovimientoModel();
+                          MovimientoModel objMovModel = new MovimientoModel();
                       Object[] objdoc = objMovModel.showDocument(iddoc);
                       
                       int folio = (int) objdoc[9];
@@ -128,9 +127,12 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
                       objEmpresa = objEmpresaModel.getData(empresaid);
                       String auxrutempresa = objEmpresa.getEmpresarut().trim();
                       String arrayrutempresa[] = auxrutempresa.split("-");
-                      
+                       
                       String arrayrutusuario[] = rutusuario.trim().split("-");
-                      
+                
+
+                      ConsultaDTE objConsultaDTE = new ConsultaDTE();
+                
                       objConsultaDTE.setFolioDte(String.valueOf(folio));
                       objConsultaDTE.setRutCompania(arrayrutempresa[0].trim());
                       objConsultaDTE.setDvCompania(arrayrutempresa[1]);

@@ -76,8 +76,13 @@ public void printDTE(String parmnombredte) throws Exception {
         
         
         /* texto resolucion */
+								int intvalue2 = 243;
+     char convertedchar2 = (char)intvalue2;
 
-        String textores = "Resoluci�n Ex. SII N� " + NroResol.getTextContent() + "" + " de "+ "";
+        int intvalue = 186;
+        char convertedchar = (char)intvalue;
+
+        String textores = "Resoluci" + convertedchar2 +  "n Ex. SII N" + convertedchar + " " + NroResol.getTextContent() + "" + " de "+ "";
 
 
 
@@ -198,7 +203,7 @@ public void printDTE(String parmnombredte) throws Exception {
         
         
         content.setTextMatrix(445, y1);
-        content.showText("N�");
+        content.showText("N"+convertedchar);
         
         
         content.setTextMatrix(465, y1);

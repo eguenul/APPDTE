@@ -113,9 +113,10 @@ if(objEmpresa.getEmpresaid()==0){
            <ul class="dropdown-menu">
             <li><a href="libroventas">LIBRO DE VENTAS</a></li> 
             <li><a href="busquedafecha">HISTORIAL DTE</a></li> 
-             <li><a href="buscacesion">BUSQUEDA CESION</a></li> 
+             <!--
+              <li><a href="buscacesion">BUSQUEDA CESION</a></li> 
                 <li><a href="historialcesion">HISTORIAL CESION</a></li> 
-          
+          -->
            </ul>
        </li>
        <li class="dropdown">

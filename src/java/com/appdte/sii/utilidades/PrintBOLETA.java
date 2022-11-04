@@ -80,10 +80,12 @@ public class PrintBOLETA {
         /* texto resolucion */
 
      int intvalue2 = 243;
-        char convertedchar2 = (char)intvalue2;
-        
+     char convertedchar2 = (char)intvalue2;
 
-        String textores = "Resoluci"+convertedchar2+ "n Ex. SII No " + NroResol.getTextContent() + "" + " de "+ "";
+         int intvalue = 186;
+        char convertedchar = (char)intvalue;
+
+        String textores = "Resoluci"+convertedchar2+ "n Ex. SII N" + convertedchar + " " + NroResol.getTextContent() + "" + " de "+ "";
 
 
 
@@ -182,8 +184,7 @@ public class PrintBOLETA {
         
         y1 = y1 - 20;
         
-       int intvalue = 186;
-        char convertedchar = (char)intvalue;
+      
         content.setTextMatrix(445, y1);
         content.showText("N" + convertedchar);
         
